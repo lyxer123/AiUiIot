@@ -1,0 +1,239 @@
+/* app.wxss */
+/* 全局样式 */
+
+/* 重置样式 */
+* {
+  box-sizing: border-box;
+}
+
+/* 页面容器 */
+.container {
+  padding: 20rpx;
+  background-color: #F8F9FA;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-block;
+  padding: 20rpx 40rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007AFF;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #0056CC;
+}
+
+.btn-success {
+  background-color: #34C759;
+  color: #FFFFFF;
+}
+
+.btn-success:hover {
+  background-color: #28A745;
+}
+
+.btn-danger {
+  background-color: #FF3B30;
+  color: #FFFFFF;
+}
+
+.btn-danger:hover {
+  background-color: #DC3545;
+}
+
+.btn-secondary {
+  background-color: #6C757D;
+  color: #FFFFFF;
+}
+
+.btn-secondary:hover {
+  background-color: #5A6268;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2rpx solid #007AFF;
+  color: #007AFF;
+}
+
+.btn-outline:hover {
+  background-color: #007AFF;
+  color: #FFFFFF;
+}
+
+/* 按钮组 */
+.btn-group {
+  display: flex;
+  gap: 20rpx;
+  margin: 20rpx 0;
+}
+
+.btn-group .btn {
+  flex: 1;
+}
+
+/* 状态指示器 */
+.status-indicator {
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.status-online {
+  background-color: #34C759;
+}
+
+.status-offline {
+  background-color: #FF3B30;
+}
+
+.status-warning {
+  background-color: #FF9500;
+}
+
+/* 数据展示 */
+.data-value {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #007AFF;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.data-label {
+  font-size: 24rpx;
+  color: #6C757D;
+  text-align: center;
+}
+
+.data-unit {
+  font-size: 24rpx;
+  color: #6C757D;
+  margin-left: 10rpx;
+}
+
+/* 开关样式 */
+.switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.switch-label {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+/* 列表样式 */
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #E9ECEF;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item-label {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.list-item-value {
+  font-size: 28rpx;
+  color: #6C757D;
+}
+
+/* 加载状态 */
+.loading {
+  text-align: center;
+  padding: 40rpx;
+  color: #6C757D;
+}
+
+.loading-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 auto 20rpx;
+}
+
+/* 错误状态 */
+.error {
+  text-align: center;
+  padding: 40rpx;
+  color: #FF3B30;
+}
+
+.error-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto 20rpx;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 60rpx 40rpx;
+  color: #6C757D;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto 20rpx;
+  opacity: 0.5;
+}
+
+/* 响应式布局 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .card {
+    padding: 20rpx;
+  }
+  
+  .btn {
+    padding: 16rpx 32rpx;
+    font-size: 26rpx;
+  }
+  
+  .data-value {
+    font-size: 40rpx;
+  }
+}

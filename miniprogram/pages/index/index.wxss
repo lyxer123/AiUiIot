@@ -1,0 +1,195 @@
+/* index.wxss */
+/* 首页样式 */
+
+/* 欢迎卡片 */
+.welcome-card {
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  color: white;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.welcome-subtitle {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 状态网格 */
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.status-item {
+  text-align: center;
+  padding: 20rpx;
+  background: #F8F9FA;
+  border-radius: 12rpx;
+}
+
+.status-icon {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin: 0 auto 10rpx;
+}
+
+.status-icon.online {
+  background-color: #34C759;
+}
+
+.status-icon.offline {
+  background-color: #FF3B30;
+}
+
+.status-text {
+  font-size: 24rpx;
+  color: #6C757D;
+  margin-bottom: 5rpx;
+}
+
+.status-value {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* 数据展示 */
+.data-display {
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.data-value {
+  font-size: 64rpx;
+  font-weight: 700;
+  color: #007AFF;
+  margin-bottom: 10rpx;
+}
+
+.data-label {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 5rpx;
+}
+
+.data-unit {
+  font-size: 24rpx;
+  color: #6C757D;
+}
+
+/* 数据信息 */
+.data-info {
+  margin: 20rpx 0;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #E9ECEF;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #6C757D;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* 控制显示 */
+.control-display {
+  margin: 20rpx 0;
+}
+
+.control-status, .control-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #E9ECEF;
+}
+
+.control-status:last-child, .control-time:last-child {
+  border-bottom: none;
+}
+
+.status-label, .time-label {
+  font-size: 26rpx;
+  color: #6C757D;
+}
+
+.status-value, .time-value {
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.status-value.on {
+  color: #34C759;
+}
+
+.status-value.off {
+  color: #FF3B30;
+}
+
+/* 快速操作 */
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20rpx;
+}
+
+.quick-btn {
+  background: transparent;
+  border: none;
+  padding: 20rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  transition: all 0.3s ease;
+}
+
+.quick-btn:active {
+  background-color: #F8F9FA;
+}
+
+.quick-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.quick-text {
+  font-size: 24rpx;
+  color: #333333;
+}
+
+/* 响应式调整 */
+@media (max-width: 750rpx) {
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .data-value {
+    font-size: 56rpx;
+  }
+}

@@ -1,0 +1,110 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 欢迎卡片 -->
+  <view class="card welcome-card">
+    <view class="welcome-title">欢迎使用ESP32智能控制系统</view>
+    <view class="welcome-subtitle">实时监控 · 远程控制 · 智能管理</view>
+  </view>
+
+  <!-- 系统状态卡片 -->
+  <view class="card">
+    <view class="card-title">系统状态</view>
+    <view class="status-grid">
+      <view class="status-item">
+        <view class="status-icon {{systemStatus.mqtt ? 'online' : 'offline'}}"></view>
+        <view class="status-text">MQTT连接</view>
+        <view class="status-value">{{systemStatus.mqtt ? '已连接' : '未连接'}}</view>
+      </view>
+      <view class="status-item">
+        <view class="status-icon {{systemStatus.device ? 'online' : 'offline'}}"></view>
+        <view class="status-text">设备状态</view>
+        <view class="status-value">{{systemStatus.device || '未知'}}</view>
+      </view>
+    </view>
+    <view class="btn-group">
+      <button class="btn btn-outline" bindtap="refreshStatus">刷新状态</button>
+      <button class="btn btn-primary" bindtap="testConnection">测试连接</button>
+    </view>
+  </view>
+
+  <!-- AD1数据卡片 -->
+  <view class="card">
+    <view class="card-title">AD1实时数据</view>
+    <view class="data-display">
+      <view class="data-value">{{ad1Data.value || '--'}}</view>
+      <view class="data-label">当前ADC值</view>
+      <view class="data-unit">单位: ADC</view>
+    </view>
+    <view class="data-info">
+      <view class="info-item">
+        <text class="info-label">更新时间:</text>
+        <text class="info-value">{{ad1Data.timestamp || '--'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">数据条数:</text>
+        <text class="info-value">{{ad1Data.count || 0}} 条</text>
+      </view>
+    </view>
+    <view class="btn-group">
+      <button class="btn btn-primary" bindtap="getAD1Data">获取最新数据</button>
+      <button class="btn btn-outline" bindtap="viewHistory">查看历史</button>
+    </view>
+  </view>
+
+  <!-- IO1控制卡片 -->
+  <view class="card">
+    <view class="card-title">IO1开关控制</view>
+    <view class="control-display">
+      <view class="control-status">
+        <text class="status-label">当前状态:</text>
+        <text class="status-value {{io1Status.state ? 'on' : 'off'}}">
+          {{io1Status.state ? '开启' : '关闭'}}
+        </text>
+      </view>
+      <view class="control-time">
+        <text class="time-label">最后更新:</text>
+        <text class="time-value">{{io1Status.timestamp || '--'}}</text>
+      </view>
+    </view>
+    <view class="btn-group">
+      <button class="btn btn-success" bindtap="turnOnIO1">开启IO1</button>
+      <button class="btn btn-danger" bindtap="turnOffIO1">关闭IO1</button>
+    </view>
+    <view class="btn-group">
+      <button class="btn btn-outline" bindtap="refreshIO1Status">刷新状态</button>
+      <button class="btn btn-secondary" bindtap="viewControlHistory">控制历史</button>
+    </view>
+  </view>
+
+  <!-- 快速操作 -->
+  <view class="card">
+    <view class="card-title">快速操作</view>
+    <view class="quick-actions">
+      <button class="quick-btn" bindtap="navigateToControl">
+        <view class="quick-icon">🎛️</view>
+        <view class="quick-text">设备控制</view>
+      </button>
+      <button class="quick-btn" bindtap="navigateToData">
+        <view class="quick-icon">📊</view>
+        <view class="quick-text">数据监控</view>
+      </button>
+      <button class="quick-btn" bindtap="navigateToProfile">
+        <view class="quick-icon">👤</view>
+        <view class="quick-text">个人中心</view>
+      </button>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loading-icon">⏳</view>
+    <text>正在加载数据...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view class="error" wx:if="{{error}}">
+    <view class="error-icon">⚠️</view>
+    <text>{{error}}</text>
+    <button class="btn btn-primary" bindtap="retry">重试</button>
+  </view>
+</view>
