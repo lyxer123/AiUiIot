@@ -17720,3 +17720,818 @@
 2025-08-24 23:01:17,632 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:17.623810"}
 2025-08-24 23:01:17,635 - root - INFO - 设备状态保存成功: running
 2025-08-24 23:01:17,635 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:20,110 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3179, "unit": "ADC", "timestamp": "2025-08-24T23:01:20.110055"}
+2025-08-24 23:01:20,113 - root - INFO - AD1数据保存成功: 3179
+2025-08-24 23:01:20,113 - root - INFO - AD1数据已保存: 3179
+2025-08-24 23:01:20,113 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:20.110055"}
+2025-08-24 23:01:20,116 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:20,117 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:22,628 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3202, "unit": "ADC", "timestamp": "2025-08-24T23:01:22.627692"}
+2025-08-24 23:01:22,634 - root - INFO - AD1数据保存成功: 3202
+2025-08-24 23:01:22,634 - root - INFO - AD1数据已保存: 3202
+2025-08-24 23:01:22,638 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:22.628688"}
+2025-08-24 23:01:22,649 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:22,651 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:25,110 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3193, "unit": "ADC", "timestamp": "2025-08-24T23:01:25.110436"}
+2025-08-24 23:01:25,114 - root - INFO - AD1数据保存成功: 3193
+2025-08-24 23:01:25,114 - root - INFO - AD1数据已保存: 3193
+2025-08-24 23:01:25,115 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:25.110436"}
+2025-08-24 23:01:25,118 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:25,118 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:27,629 - root - INFO - ESP32模拟器统计 - 已发送数据: 384, 平均间隔: 4.99s, 当前AD值: 3206
+2025-08-24 23:01:27,629 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3206, "unit": "ADC", "timestamp": "2025-08-24T23:01:27.629342"}
+2025-08-24 23:01:27,634 - root - INFO - AD1数据保存成功: 3206
+2025-08-24 23:01:27,635 - root - INFO - AD1数据已保存: 3206
+2025-08-24 23:01:27,635 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:27.629342"}
+2025-08-24 23:01:27,638 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:27,639 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:30,110 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3198, "unit": "ADC", "timestamp": "2025-08-24T23:01:30.110894"}
+2025-08-24 23:01:30,114 - root - INFO - AD1数据保存成功: 3198
+2025-08-24 23:01:30,115 - root - INFO - AD1数据已保存: 3198
+2025-08-24 23:01:30,116 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:30.110894"}
+2025-08-24 23:01:30,119 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:30,127 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:32,630 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3209, "unit": "ADC", "timestamp": "2025-08-24T23:01:32.630082"}
+2025-08-24 23:01:32,632 - root - INFO - AD1数据保存成功: 3209
+2025-08-24 23:01:32,632 - root - INFO - AD1数据已保存: 3209
+2025-08-24 23:01:32,632 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:32.630082"}
+2025-08-24 23:01:32,635 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:32,635 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:35,111 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3218, "unit": "ADC", "timestamp": "2025-08-24T23:01:35.111808"}
+2025-08-24 23:01:35,114 - root - INFO - AD1数据保存成功: 3218
+2025-08-24 23:01:35,114 - root - INFO - AD1数据已保存: 3218
+2025-08-24 23:01:35,114 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:35.111808"}
+2025-08-24 23:01:35,117 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:35,117 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:37,630 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3218, "unit": "ADC", "timestamp": "2025-08-24T23:01:37.630419"}
+2025-08-24 23:01:37,635 - root - INFO - AD1数据保存成功: 3218
+2025-08-24 23:01:37,635 - root - INFO - AD1数据已保存: 3218
+2025-08-24 23:01:37,635 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:37.630419"}
+2025-08-24 23:01:37,639 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:37,639 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:40,112 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3231, "unit": "ADC", "timestamp": "2025-08-24T23:01:40.112074"}
+2025-08-24 23:01:40,115 - root - INFO - AD1数据保存成功: 3231
+2025-08-24 23:01:40,115 - root - INFO - AD1数据已保存: 3231
+2025-08-24 23:01:40,115 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:40.112074"}
+2025-08-24 23:01:40,118 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:40,118 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:42,631 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3203, "unit": "ADC", "timestamp": "2025-08-24T23:01:42.631524"}
+2025-08-24 23:01:42,634 - root - INFO - AD1数据保存成功: 3203
+2025-08-24 23:01:42,634 - root - INFO - AD1数据已保存: 3203
+2025-08-24 23:01:42,634 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:42.631524"}
+2025-08-24 23:01:42,637 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:42,637 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:45,113 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3203, "unit": "ADC", "timestamp": "2025-08-24T23:01:45.113085"}
+2025-08-24 23:01:45,116 - root - INFO - AD1数据保存成功: 3203
+2025-08-24 23:01:45,116 - root - INFO - AD1数据已保存: 3203
+2025-08-24 23:01:45,117 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:45.113085"}
+2025-08-24 23:01:45,120 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:45,120 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:47,632 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3212, "unit": "ADC", "timestamp": "2025-08-24T23:01:47.632230"}
+2025-08-24 23:01:47,635 - root - INFO - AD1数据保存成功: 3212
+2025-08-24 23:01:47,635 - root - INFO - AD1数据已保存: 3212
+2025-08-24 23:01:47,635 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:47.632230"}
+2025-08-24 23:01:47,638 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:47,638 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:50,113 - root - INFO - ESP32模拟器统计 - 已发送数据: 360, 平均间隔: 4.99s, 当前AD值: 3210
+2025-08-24 23:01:50,113 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3210, "unit": "ADC", "timestamp": "2025-08-24T23:01:50.113336"}
+2025-08-24 23:01:50,117 - root - INFO - AD1数据保存成功: 3210
+2025-08-24 23:01:50,117 - root - INFO - AD1数据已保存: 3210
+2025-08-24 23:01:50,117 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:50.113336"}
+2025-08-24 23:01:50,120 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:50,120 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:52,632 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3188, "unit": "ADC", "timestamp": "2025-08-24T23:01:52.632623"}
+2025-08-24 23:01:52,635 - root - INFO - AD1数据保存成功: 3188
+2025-08-24 23:01:52,635 - root - INFO - AD1数据已保存: 3188
+2025-08-24 23:01:52,635 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:52.632623"}
+2025-08-24 23:01:52,638 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:52,638 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:55,113 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1015, "unit": "ADC", "timestamp": "2025-08-24T23:01:55.113860"}
+2025-08-24 23:01:55,117 - root - INFO - AD1数据保存成功: 1015
+2025-08-24 23:01:55,117 - root - INFO - AD1数据已保存: 1015
+2025-08-24 23:01:55,117 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:55.113860"}
+2025-08-24 23:01:55,120 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:55,120 - root - INFO - 设备状态已保存: running
+2025-08-24 23:01:57,633 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1016, "unit": "ADC", "timestamp": "2025-08-24T23:01:57.633738"}
+2025-08-24 23:01:57,637 - root - INFO - AD1数据保存成功: 1016
+2025-08-24 23:01:57,638 - root - INFO - AD1数据已保存: 1016
+2025-08-24 23:01:57,638 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:01:57.633738"}
+2025-08-24 23:01:57,641 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:01:57,641 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:00,114 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1019, "unit": "ADC", "timestamp": "2025-08-24T23:02:00.114900"}
+2025-08-24 23:02:00,117 - root - INFO - AD1数据保存成功: 1019
+2025-08-24 23:02:00,117 - root - INFO - AD1数据已保存: 1019
+2025-08-24 23:02:00,118 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:00.114900"}
+2025-08-24 23:02:00,120 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:00,121 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:00,524 - root - INFO - 系统状态 - MQTT: 已连接, 模拟器: 已连接
+2025-08-24 23:02:02,633 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1019, "unit": "ADC", "timestamp": "2025-08-24T23:02:02.633961"}
+2025-08-24 23:02:02,636 - root - INFO - AD1数据保存成功: 1019
+2025-08-24 23:02:02,636 - root - INFO - AD1数据已保存: 1019
+2025-08-24 23:02:02,637 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:02.633961"}
+2025-08-24 23:02:02,639 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:02,639 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:05,115 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1019, "unit": "ADC", "timestamp": "2025-08-24T23:02:05.115897"}
+2025-08-24 23:02:05,121 - root - INFO - AD1数据保存成功: 1019
+2025-08-24 23:02:05,121 - root - INFO - AD1数据已保存: 1019
+2025-08-24 23:02:05,122 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:05.115897"}
+2025-08-24 23:02:05,125 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:05,125 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:07,634 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1019, "unit": "ADC", "timestamp": "2025-08-24T23:02:07.634649"}
+2025-08-24 23:02:07,637 - root - INFO - AD1数据保存成功: 1019
+2025-08-24 23:02:07,637 - root - INFO - AD1数据已保存: 1019
+2025-08-24 23:02:07,638 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:07.634649"}
+2025-08-24 23:02:07,640 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:07,640 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:10,117 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1034, "unit": "ADC", "timestamp": "2025-08-24T23:02:10.117032"}
+2025-08-24 23:02:10,119 - root - INFO - AD1数据保存成功: 1034
+2025-08-24 23:02:10,120 - root - INFO - AD1数据已保存: 1034
+2025-08-24 23:02:10,120 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:10.117032"}
+2025-08-24 23:02:10,122 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:10,122 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:12,635 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1040, "unit": "ADC", "timestamp": "2025-08-24T23:02:12.635380"}
+2025-08-24 23:02:12,638 - root - INFO - AD1数据保存成功: 1040
+2025-08-24 23:02:12,638 - root - INFO - AD1数据已保存: 1040
+2025-08-24 23:02:12,639 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:12.635380"}
+2025-08-24 23:02:12,641 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:12,641 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:15,117 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1050, "unit": "ADC", "timestamp": "2025-08-24T23:02:15.117284"}
+2025-08-24 23:02:15,119 - root - INFO - AD1数据保存成功: 1050
+2025-08-24 23:02:15,120 - root - INFO - AD1数据已保存: 1050
+2025-08-24 23:02:15,120 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:15.117284"}
+2025-08-24 23:02:15,122 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:15,123 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:17,635 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1058, "unit": "ADC", "timestamp": "2025-08-24T23:02:17.635612"}
+2025-08-24 23:02:17,642 - root - INFO - AD1数据保存成功: 1058
+2025-08-24 23:02:17,642 - root - INFO - AD1数据已保存: 1058
+2025-08-24 23:02:17,643 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:17.635612"}
+2025-08-24 23:02:17,645 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:17,645 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:20,117 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1058, "unit": "ADC", "timestamp": "2025-08-24T23:02:20.117540"}
+2025-08-24 23:02:20,120 - root - INFO - AD1数据保存成功: 1058
+2025-08-24 23:02:20,120 - root - INFO - AD1数据已保存: 1058
+2025-08-24 23:02:20,121 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:20.117540"}
+2025-08-24 23:02:20,124 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:20,124 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:22,636 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1087, "unit": "ADC", "timestamp": "2025-08-24T23:02:22.636257"}
+2025-08-24 23:02:22,639 - root - INFO - AD1数据保存成功: 1087
+2025-08-24 23:02:22,639 - root - INFO - AD1数据已保存: 1087
+2025-08-24 23:02:22,639 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:22.636257"}
+2025-08-24 23:02:22,642 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:22,642 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:25,117 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1089, "unit": "ADC", "timestamp": "2025-08-24T23:02:25.117938"}
+2025-08-24 23:02:25,120 - root - INFO - AD1数据保存成功: 1089
+2025-08-24 23:02:25,121 - root - INFO - AD1数据已保存: 1089
+2025-08-24 23:02:25,121 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:25.117938"}
+2025-08-24 23:02:25,123 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:25,123 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:27,636 - root - INFO - ESP32模拟器统计 - 已发送数据: 396, 平均间隔: 4.99s, 当前AD值: 1102
+2025-08-24 23:02:27,637 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1102, "unit": "ADC", "timestamp": "2025-08-24T23:02:27.636866"}
+2025-08-24 23:02:27,641 - root - INFO - AD1数据保存成功: 1102
+2025-08-24 23:02:27,641 - root - INFO - AD1数据已保存: 1102
+2025-08-24 23:02:27,641 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:27.636866"}
+2025-08-24 23:02:27,643 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:27,643 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:30,118 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1102, "unit": "ADC", "timestamp": "2025-08-24T23:02:30.118763"}
+2025-08-24 23:02:30,123 - root - INFO - AD1数据保存成功: 1102
+2025-08-24 23:02:30,123 - root - INFO - AD1数据已保存: 1102
+2025-08-24 23:02:30,123 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:30.118763"}
+2025-08-24 23:02:30,126 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:30,126 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:32,637 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1130, "unit": "ADC", "timestamp": "2025-08-24T23:02:32.637499"}
+2025-08-24 23:02:32,640 - root - INFO - AD1数据保存成功: 1130
+2025-08-24 23:02:32,640 - root - INFO - AD1数据已保存: 1130
+2025-08-24 23:02:32,641 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:32.637499"}
+2025-08-24 23:02:32,643 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:32,643 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:35,119 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1141, "unit": "ADC", "timestamp": "2025-08-24T23:02:35.119088"}
+2025-08-24 23:02:35,122 - root - INFO - AD1数据保存成功: 1141
+2025-08-24 23:02:35,122 - root - INFO - AD1数据已保存: 1141
+2025-08-24 23:02:35,122 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:35.119088"}
+2025-08-24 23:02:35,124 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:35,124 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:37,637 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1157, "unit": "ADC", "timestamp": "2025-08-24T23:02:37.637815"}
+2025-08-24 23:02:37,640 - root - INFO - AD1数据保存成功: 1157
+2025-08-24 23:02:37,641 - root - INFO - AD1数据已保存: 1157
+2025-08-24 23:02:37,641 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:37.637815"}
+2025-08-24 23:02:37,643 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:37,643 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:40,119 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1177, "unit": "ADC", "timestamp": "2025-08-24T23:02:40.119423"}
+2025-08-24 23:02:40,122 - root - INFO - AD1数据保存成功: 1177
+2025-08-24 23:02:40,122 - root - INFO - AD1数据已保存: 1177
+2025-08-24 23:02:40,122 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:40.119423"}
+2025-08-24 23:02:40,125 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:40,125 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:42,638 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1177, "unit": "ADC", "timestamp": "2025-08-24T23:02:42.638705"}
+2025-08-24 23:02:42,641 - root - INFO - AD1数据保存成功: 1177
+2025-08-24 23:02:42,641 - root - INFO - AD1数据已保存: 1177
+2025-08-24 23:02:42,641 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:42.638705"}
+2025-08-24 23:02:42,644 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:42,644 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:45,119 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1192, "unit": "ADC", "timestamp": "2025-08-24T23:02:45.119878"}
+2025-08-24 23:02:45,123 - root - INFO - AD1数据保存成功: 1192
+2025-08-24 23:02:45,123 - root - INFO - AD1数据已保存: 1192
+2025-08-24 23:02:45,123 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:45.119878"}
+2025-08-24 23:02:45,125 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:45,125 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:47,639 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1215, "unit": "ADC", "timestamp": "2025-08-24T23:02:47.639309"}
+2025-08-24 23:02:47,642 - root - INFO - AD1数据保存成功: 1215
+2025-08-24 23:02:47,642 - root - INFO - AD1数据已保存: 1215
+2025-08-24 23:02:47,643 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:47.639309"}
+2025-08-24 23:02:47,645 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:47,645 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:50,120 - root - INFO - ESP32模拟器统计 - 已发送数据: 372, 平均间隔: 4.99s, 当前AD值: 1242
+2025-08-24 23:02:50,120 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1242, "unit": "ADC", "timestamp": "2025-08-24T23:02:50.120349"}
+2025-08-24 23:02:50,124 - root - INFO - AD1数据保存成功: 1242
+2025-08-24 23:02:50,124 - root - INFO - AD1数据已保存: 1242
+2025-08-24 23:02:50,125 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:50.120349"}
+2025-08-24 23:02:50,128 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:50,128 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:52,639 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4084, "unit": "ADC", "timestamp": "2025-08-24T23:02:52.639944"}
+2025-08-24 23:02:52,643 - root - INFO - AD1数据保存成功: 4084
+2025-08-24 23:02:52,643 - root - INFO - AD1数据已保存: 4084
+2025-08-24 23:02:52,643 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:52.639944"}
+2025-08-24 23:02:52,645 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:52,645 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:55,121 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4095, "unit": "ADC", "timestamp": "2025-08-24T23:02:55.121776"}
+2025-08-24 23:02:55,124 - root - INFO - AD1数据保存成功: 4095
+2025-08-24 23:02:55,124 - root - INFO - AD1数据已保存: 4095
+2025-08-24 23:02:55,124 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:55.121776"}
+2025-08-24 23:02:55,127 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:55,127 - root - INFO - 设备状态已保存: running
+2025-08-24 23:02:57,640 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4095, "unit": "ADC", "timestamp": "2025-08-24T23:02:57.640629"}
+2025-08-24 23:02:57,643 - root - INFO - AD1数据保存成功: 4095
+2025-08-24 23:02:57,643 - root - INFO - AD1数据已保存: 4095
+2025-08-24 23:02:57,643 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:02:57.640629"}
+2025-08-24 23:02:57,646 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:02:57,646 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:00,122 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4095, "unit": "ADC", "timestamp": "2025-08-24T23:03:00.122582"}
+2025-08-24 23:03:00,126 - root - INFO - AD1数据保存成功: 4095
+2025-08-24 23:03:00,126 - root - INFO - AD1数据已保存: 4095
+2025-08-24 23:03:00,126 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:00.122582"}
+2025-08-24 23:03:00,129 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:00,129 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:00,542 - root - INFO - 系统状态 - MQTT: 已连接, 模拟器: 已连接
+2025-08-24 23:03:02,641 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4095, "unit": "ADC", "timestamp": "2025-08-24T23:03:02.641773"}
+2025-08-24 23:03:02,644 - root - INFO - AD1数据保存成功: 4095
+2025-08-24 23:03:02,644 - root - INFO - AD1数据已保存: 4095
+2025-08-24 23:03:02,644 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:02.641773"}
+2025-08-24 23:03:02,647 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:02,647 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:05,123 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4093, "unit": "ADC", "timestamp": "2025-08-24T23:03:05.123449"}
+2025-08-24 23:03:05,126 - root - INFO - AD1数据保存成功: 4093
+2025-08-24 23:03:05,126 - root - INFO - AD1数据已保存: 4093
+2025-08-24 23:03:05,126 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:05.123449"}
+2025-08-24 23:03:05,129 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:05,129 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:07,642 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4081, "unit": "ADC", "timestamp": "2025-08-24T23:03:07.642689"}
+2025-08-24 23:03:07,645 - root - INFO - AD1数据保存成功: 4081
+2025-08-24 23:03:07,645 - root - INFO - AD1数据已保存: 4081
+2025-08-24 23:03:07,646 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:07.642689"}
+2025-08-24 23:03:07,648 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:07,649 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:10,124 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4095, "unit": "ADC", "timestamp": "2025-08-24T23:03:10.124657"}
+2025-08-24 23:03:10,128 - root - INFO - AD1数据保存成功: 4095
+2025-08-24 23:03:10,128 - root - INFO - AD1数据已保存: 4095
+2025-08-24 23:03:10,129 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:10.124657"}
+2025-08-24 23:03:10,131 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:10,132 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:12,643 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4083, "unit": "ADC", "timestamp": "2025-08-24T23:03:12.643739"}
+2025-08-24 23:03:12,648 - root - INFO - AD1数据保存成功: 4083
+2025-08-24 23:03:12,648 - root - INFO - AD1数据已保存: 4083
+2025-08-24 23:03:12,648 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:12.643739"}
+2025-08-24 23:03:12,651 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:12,651 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:15,125 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4083, "unit": "ADC", "timestamp": "2025-08-24T23:03:15.125054"}
+2025-08-24 23:03:15,128 - root - INFO - AD1数据保存成功: 4083
+2025-08-24 23:03:15,128 - root - INFO - AD1数据已保存: 4083
+2025-08-24 23:03:15,128 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:15.125054"}
+2025-08-24 23:03:15,131 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:15,131 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:17,643 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4086, "unit": "ADC", "timestamp": "2025-08-24T23:03:17.643991"}
+2025-08-24 23:03:17,650 - root - INFO - AD1数据保存成功: 4086
+2025-08-24 23:03:17,650 - root - INFO - AD1数据已保存: 4086
+2025-08-24 23:03:17,650 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:17.643991"}
+2025-08-24 23:03:17,653 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:17,653 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:20,125 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4070, "unit": "ADC", "timestamp": "2025-08-24T23:03:20.125301"}
+2025-08-24 23:03:20,128 - root - INFO - AD1数据保存成功: 4070
+2025-08-24 23:03:20,128 - root - INFO - AD1数据已保存: 4070
+2025-08-24 23:03:20,128 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:20.125301"}
+2025-08-24 23:03:20,131 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:20,131 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:22,644 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4044, "unit": "ADC", "timestamp": "2025-08-24T23:03:22.644282"}
+2025-08-24 23:03:22,648 - root - INFO - AD1数据保存成功: 4044
+2025-08-24 23:03:22,648 - root - INFO - AD1数据已保存: 4044
+2025-08-24 23:03:22,648 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:22.644282"}
+2025-08-24 23:03:22,651 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:22,651 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:25,125 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4044, "unit": "ADC", "timestamp": "2025-08-24T23:03:25.125561"}
+2025-08-24 23:03:25,128 - root - INFO - AD1数据保存成功: 4044
+2025-08-24 23:03:25,128 - root - INFO - AD1数据已保存: 4044
+2025-08-24 23:03:25,128 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:25.125561"}
+2025-08-24 23:03:25,131 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:25,131 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:27,644 - root - INFO - ESP32模拟器统计 - 已发送数据: 408, 平均间隔: 4.99s, 当前AD值: 4050
+2025-08-24 23:03:27,644 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4050, "unit": "ADC", "timestamp": "2025-08-24T23:03:27.644597"}
+2025-08-24 23:03:27,650 - root - INFO - AD1数据保存成功: 4050
+2025-08-24 23:03:27,650 - root - INFO - AD1数据已保存: 4050
+2025-08-24 23:03:27,650 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:27.644597"}
+2025-08-24 23:03:27,653 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:27,653 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:30,126 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4050, "unit": "ADC", "timestamp": "2025-08-24T23:03:30.126589"}
+2025-08-24 23:03:30,130 - root - INFO - AD1数据保存成功: 4050
+2025-08-24 23:03:30,130 - root - INFO - AD1数据已保存: 4050
+2025-08-24 23:03:30,130 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:30.126589"}
+2025-08-24 23:03:30,133 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:30,133 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:32,645 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4050, "unit": "ADC", "timestamp": "2025-08-24T23:03:32.645369"}
+2025-08-24 23:03:32,648 - root - INFO - AD1数据保存成功: 4050
+2025-08-24 23:03:32,648 - root - INFO - AD1数据已保存: 4050
+2025-08-24 23:03:32,648 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:32.645369"}
+2025-08-24 23:03:32,650 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:32,650 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:35,126 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4065, "unit": "ADC", "timestamp": "2025-08-24T23:03:35.126999"}
+2025-08-24 23:03:35,129 - root - INFO - AD1数据保存成功: 4065
+2025-08-24 23:03:35,129 - root - INFO - AD1数据已保存: 4065
+2025-08-24 23:03:35,130 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:35.126999"}
+2025-08-24 23:03:35,132 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:35,132 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:37,645 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4065, "unit": "ADC", "timestamp": "2025-08-24T23:03:37.645572"}
+2025-08-24 23:03:37,648 - root - INFO - AD1数据保存成功: 4065
+2025-08-24 23:03:37,648 - root - INFO - AD1数据已保存: 4065
+2025-08-24 23:03:37,648 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:37.645572"}
+2025-08-24 23:03:37,651 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:37,651 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:40,127 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4087, "unit": "ADC", "timestamp": "2025-08-24T23:03:40.127609"}
+2025-08-24 23:03:40,130 - root - INFO - AD1数据保存成功: 4087
+2025-08-24 23:03:40,130 - root - INFO - AD1数据已保存: 4087
+2025-08-24 23:03:40,130 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:40.127609"}
+2025-08-24 23:03:40,133 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:40,133 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:42,645 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4095, "unit": "ADC", "timestamp": "2025-08-24T23:03:42.645825"}
+2025-08-24 23:03:42,649 - root - INFO - AD1数据保存成功: 4095
+2025-08-24 23:03:42,649 - root - INFO - AD1数据已保存: 4095
+2025-08-24 23:03:42,649 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:42.645825"}
+2025-08-24 23:03:42,652 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:42,652 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:45,127 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4081, "unit": "ADC", "timestamp": "2025-08-24T23:03:45.127898"}
+2025-08-24 23:03:45,130 - root - INFO - AD1数据保存成功: 4081
+2025-08-24 23:03:45,130 - root - INFO - AD1数据已保存: 4081
+2025-08-24 23:03:45,131 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:45.127898"}
+2025-08-24 23:03:45,133 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:45,133 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:47,646 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4064, "unit": "ADC", "timestamp": "2025-08-24T23:03:47.646055"}
+2025-08-24 23:03:47,649 - root - INFO - AD1数据保存成功: 4064
+2025-08-24 23:03:47,649 - root - INFO - AD1数据已保存: 4064
+2025-08-24 23:03:47,649 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:47.646055"}
+2025-08-24 23:03:47,651 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:47,651 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:50,128 - root - INFO - ESP32模拟器统计 - 已发送数据: 384, 平均间隔: 4.99s, 当前AD值: 4065
+2025-08-24 23:03:50,128 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4065, "unit": "ADC", "timestamp": "2025-08-24T23:03:50.128138"}
+2025-08-24 23:03:50,131 - root - INFO - AD1数据保存成功: 4065
+2025-08-24 23:03:50,131 - root - INFO - AD1数据已保存: 4065
+2025-08-24 23:03:50,132 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:50.128138"}
+2025-08-24 23:03:50,135 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:50,135 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:52,646 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 608, "unit": "ADC", "timestamp": "2025-08-24T23:03:52.646291"}
+2025-08-24 23:03:52,648 - root - INFO - AD1数据保存成功: 608
+2025-08-24 23:03:52,649 - root - INFO - AD1数据已保存: 608
+2025-08-24 23:03:52,649 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:52.646291"}
+2025-08-24 23:03:52,652 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:52,652 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:55,129 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 608, "unit": "ADC", "timestamp": "2025-08-24T23:03:55.129296"}
+2025-08-24 23:03:55,131 - root - INFO - AD1数据保存成功: 608
+2025-08-24 23:03:55,132 - root - INFO - AD1数据已保存: 608
+2025-08-24 23:03:55,132 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:55.129296"}
+2025-08-24 23:03:55,134 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:55,134 - root - INFO - 设备状态已保存: running
+2025-08-24 23:03:57,646 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 608, "unit": "ADC", "timestamp": "2025-08-24T23:03:57.646576"}
+2025-08-24 23:03:57,650 - root - INFO - AD1数据保存成功: 608
+2025-08-24 23:03:57,650 - root - INFO - AD1数据已保存: 608
+2025-08-24 23:03:57,650 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:03:57.646576"}
+2025-08-24 23:03:57,653 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:03:57,654 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:00,129 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 605, "unit": "ADC", "timestamp": "2025-08-24T23:04:00.129968"}
+2025-08-24 23:04:00,132 - root - INFO - AD1数据保存成功: 605
+2025-08-24 23:04:00,132 - root - INFO - AD1数据已保存: 605
+2025-08-24 23:04:00,132 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:00.129968"}
+2025-08-24 23:04:00,135 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:00,135 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:00,563 - root - INFO - 系统状态 - MQTT: 已连接, 模拟器: 已连接
+2025-08-24 23:04:02,646 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 589, "unit": "ADC", "timestamp": "2025-08-24T23:04:02.646973"}
+2025-08-24 23:04:02,649 - root - INFO - AD1数据保存成功: 589
+2025-08-24 23:04:02,649 - root - INFO - AD1数据已保存: 589
+2025-08-24 23:04:02,649 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:02.646973"}
+2025-08-24 23:04:02,652 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:02,652 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:05,131 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 592, "unit": "ADC", "timestamp": "2025-08-24T23:04:05.131190"}
+2025-08-24 23:04:05,134 - root - INFO - AD1数据保存成功: 592
+2025-08-24 23:04:05,134 - root - INFO - AD1数据已保存: 592
+2025-08-24 23:04:05,134 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:05.131190"}
+2025-08-24 23:04:05,136 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:05,136 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:07,647 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 592, "unit": "ADC", "timestamp": "2025-08-24T23:04:07.647222"}
+2025-08-24 23:04:07,650 - root - INFO - AD1数据保存成功: 592
+2025-08-24 23:04:07,650 - root - INFO - AD1数据已保存: 592
+2025-08-24 23:04:07,650 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:07.647222"}
+2025-08-24 23:04:07,653 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:07,653 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:10,131 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 563, "unit": "ADC", "timestamp": "2025-08-24T23:04:10.131451"}
+2025-08-24 23:04:10,134 - root - INFO - AD1数据保存成功: 563
+2025-08-24 23:04:10,134 - root - INFO - AD1数据已保存: 563
+2025-08-24 23:04:10,134 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:10.131451"}
+2025-08-24 23:04:10,137 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:10,137 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:12,648 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 548, "unit": "ADC", "timestamp": "2025-08-24T23:04:12.648124"}
+2025-08-24 23:04:12,652 - root - INFO - AD1数据保存成功: 548
+2025-08-24 23:04:12,652 - root - INFO - AD1数据已保存: 548
+2025-08-24 23:04:12,653 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:12.648124"}
+2025-08-24 23:04:12,655 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:12,655 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:15,132 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 548, "unit": "ADC", "timestamp": "2025-08-24T23:04:15.132075"}
+2025-08-24 23:04:15,135 - root - INFO - AD1数据保存成功: 548
+2025-08-24 23:04:15,135 - root - INFO - AD1数据已保存: 548
+2025-08-24 23:04:15,135 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:15.132075"}
+2025-08-24 23:04:15,138 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:15,138 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:17,648 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 531, "unit": "ADC", "timestamp": "2025-08-24T23:04:17.648988"}
+2025-08-24 23:04:17,654 - root - INFO - AD1数据保存成功: 531
+2025-08-24 23:04:17,655 - root - INFO - AD1数据已保存: 531
+2025-08-24 23:04:17,655 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:17.648988"}
+2025-08-24 23:04:17,657 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:17,657 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:20,132 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 531, "unit": "ADC", "timestamp": "2025-08-24T23:04:20.132404"}
+2025-08-24 23:04:20,135 - root - INFO - AD1数据保存成功: 531
+2025-08-24 23:04:20,135 - root - INFO - AD1数据已保存: 531
+2025-08-24 23:04:20,135 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:20.132404"}
+2025-08-24 23:04:20,138 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:20,138 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:22,649 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 533, "unit": "ADC", "timestamp": "2025-08-24T23:04:22.649264"}
+2025-08-24 23:04:22,652 - root - INFO - AD1数据保存成功: 533
+2025-08-24 23:04:22,652 - root - INFO - AD1数据已保存: 533
+2025-08-24 23:04:22,653 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:22.649264"}
+2025-08-24 23:04:22,656 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:22,656 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:25,132 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 505, "unit": "ADC", "timestamp": "2025-08-24T23:04:25.132658"}
+2025-08-24 23:04:25,135 - root - INFO - AD1数据保存成功: 505
+2025-08-24 23:04:25,135 - root - INFO - AD1数据已保存: 505
+2025-08-24 23:04:25,135 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:25.132658"}
+2025-08-24 23:04:25,138 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:25,138 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:27,650 - root - INFO - ESP32模拟器统计 - 已发送数据: 420, 平均间隔: 4.99s, 当前AD值: 472
+2025-08-24 23:04:27,650 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 472, "unit": "ADC", "timestamp": "2025-08-24T23:04:27.650523"}
+2025-08-24 23:04:27,656 - root - INFO - AD1数据保存成功: 472
+2025-08-24 23:04:27,656 - root - INFO - AD1数据已保存: 472
+2025-08-24 23:04:27,657 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:27.650523"}
+2025-08-24 23:04:27,659 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:27,659 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:30,132 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 459, "unit": "ADC", "timestamp": "2025-08-24T23:04:30.132912"}
+2025-08-24 23:04:30,135 - root - INFO - AD1数据保存成功: 459
+2025-08-24 23:04:30,135 - root - INFO - AD1数据已保存: 459
+2025-08-24 23:04:30,135 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:30.132912"}
+2025-08-24 23:04:30,138 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:30,138 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:32,651 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 439, "unit": "ADC", "timestamp": "2025-08-24T23:04:32.651301"}
+2025-08-24 23:04:32,654 - root - INFO - AD1数据保存成功: 439
+2025-08-24 23:04:32,654 - root - INFO - AD1数据已保存: 439
+2025-08-24 23:04:32,655 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:32.651301"}
+2025-08-24 23:04:32,657 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:32,657 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:35,133 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 436, "unit": "ADC", "timestamp": "2025-08-24T23:04:35.133162"}
+2025-08-24 23:04:35,135 - root - INFO - AD1数据保存成功: 436
+2025-08-24 23:04:35,135 - root - INFO - AD1数据已保存: 436
+2025-08-24 23:04:35,136 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:35.133162"}
+2025-08-24 23:04:35,139 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:35,139 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:37,651 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 405, "unit": "ADC", "timestamp": "2025-08-24T23:04:37.651544"}
+2025-08-24 23:04:37,654 - root - INFO - AD1数据保存成功: 405
+2025-08-24 23:04:37,654 - root - INFO - AD1数据已保存: 405
+2025-08-24 23:04:37,654 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:37.651544"}
+2025-08-24 23:04:37,657 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:37,657 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:40,133 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 384, "unit": "ADC", "timestamp": "2025-08-24T23:04:40.133398"}
+2025-08-24 23:04:40,136 - root - INFO - AD1数据保存成功: 384
+2025-08-24 23:04:40,136 - root - INFO - AD1数据已保存: 384
+2025-08-24 23:04:40,137 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:40.133398"}
+2025-08-24 23:04:40,139 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:40,139 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:42,651 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 378, "unit": "ADC", "timestamp": "2025-08-24T23:04:42.651781"}
+2025-08-24 23:04:42,654 - root - INFO - AD1数据保存成功: 378
+2025-08-24 23:04:42,654 - root - INFO - AD1数据已保存: 378
+2025-08-24 23:04:42,655 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:42.651781"}
+2025-08-24 23:04:42,657 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:42,657 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:45,134 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 365, "unit": "ADC", "timestamp": "2025-08-24T23:04:45.134031"}
+2025-08-24 23:04:45,137 - root - INFO - AD1数据保存成功: 365
+2025-08-24 23:04:45,137 - root - INFO - AD1数据已保存: 365
+2025-08-24 23:04:45,137 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:45.134031"}
+2025-08-24 23:04:45,140 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:45,140 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:47,651 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 365, "unit": "ADC", "timestamp": "2025-08-24T23:04:47.651987"}
+2025-08-24 23:04:47,655 - root - INFO - AD1数据保存成功: 365
+2025-08-24 23:04:47,655 - root - INFO - AD1数据已保存: 365
+2025-08-24 23:04:47,655 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:47.651987"}
+2025-08-24 23:04:47,657 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:47,657 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:50,134 - root - INFO - ESP32模拟器统计 - 已发送数据: 396, 平均间隔: 4.99s, 当前AD值: 335
+2025-08-24 23:04:50,134 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 335, "unit": "ADC", "timestamp": "2025-08-24T23:04:50.134271"}
+2025-08-24 23:04:50,138 - root - INFO - AD1数据保存成功: 335
+2025-08-24 23:04:50,138 - root - INFO - AD1数据已保存: 335
+2025-08-24 23:04:50,139 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:50.134271"}
+2025-08-24 23:04:50,141 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:50,141 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:52,652 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 333, "unit": "ADC", "timestamp": "2025-08-24T23:04:52.652227"}
+2025-08-24 23:04:52,655 - root - INFO - AD1数据保存成功: 333
+2025-08-24 23:04:52,655 - root - INFO - AD1数据已保存: 333
+2025-08-24 23:04:52,656 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:52.652227"}
+2025-08-24 23:04:52,658 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:52,658 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:55,134 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 320, "unit": "ADC", "timestamp": "2025-08-24T23:04:55.134828"}
+2025-08-24 23:04:55,137 - root - INFO - AD1数据保存成功: 320
+2025-08-24 23:04:55,137 - root - INFO - AD1数据已保存: 320
+2025-08-24 23:04:55,138 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:55.134828"}
+2025-08-24 23:04:55,141 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:55,141 - root - INFO - 设备状态已保存: running
+2025-08-24 23:04:57,652 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 316, "unit": "ADC", "timestamp": "2025-08-24T23:04:57.652423"}
+2025-08-24 23:04:57,655 - root - INFO - AD1数据保存成功: 316
+2025-08-24 23:04:57,655 - root - INFO - AD1数据已保存: 316
+2025-08-24 23:04:57,655 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:04:57.652423"}
+2025-08-24 23:04:57,658 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:04:57,658 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:00,135 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 319, "unit": "ADC", "timestamp": "2025-08-24T23:05:00.135094"}
+2025-08-24 23:05:00,138 - root - INFO - AD1数据保存成功: 319
+2025-08-24 23:05:00,138 - root - INFO - AD1数据已保存: 319
+2025-08-24 23:05:00,139 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:00.135094"}
+2025-08-24 23:05:00,141 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:00,141 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:00,586 - root - INFO - 系统状态 - MQTT: 已连接, 模拟器: 已连接
+2025-08-24 23:05:02,652 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 319, "unit": "ADC", "timestamp": "2025-08-24T23:05:02.652659"}
+2025-08-24 23:05:02,655 - root - INFO - AD1数据保存成功: 319
+2025-08-24 23:05:02,655 - root - INFO - AD1数据已保存: 319
+2025-08-24 23:05:02,655 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:02.652659"}
+2025-08-24 23:05:02,658 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:02,658 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:05,136 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 312, "unit": "ADC", "timestamp": "2025-08-24T23:05:05.136116"}
+2025-08-24 23:05:05,139 - root - INFO - AD1数据保存成功: 312
+2025-08-24 23:05:05,139 - root - INFO - AD1数据已保存: 312
+2025-08-24 23:05:05,140 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:05.136116"}
+2025-08-24 23:05:05,142 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:05,142 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:07,652 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 303, "unit": "ADC", "timestamp": "2025-08-24T23:05:07.652900"}
+2025-08-24 23:05:07,657 - root - INFO - AD1数据保存成功: 303
+2025-08-24 23:05:07,657 - root - INFO - AD1数据已保存: 303
+2025-08-24 23:05:07,657 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:07.652900"}
+2025-08-24 23:05:07,660 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:07,660 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:10,136 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 303, "unit": "ADC", "timestamp": "2025-08-24T23:05:10.136346"}
+2025-08-24 23:05:10,139 - root - INFO - AD1数据保存成功: 303
+2025-08-24 23:05:10,139 - root - INFO - AD1数据已保存: 303
+2025-08-24 23:05:10,139 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:10.136346"}
+2025-08-24 23:05:10,142 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:10,142 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:12,653 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3983, "unit": "ADC", "timestamp": "2025-08-24T23:05:12.653641"}
+2025-08-24 23:05:12,656 - root - INFO - AD1数据保存成功: 3983
+2025-08-24 23:05:12,656 - root - INFO - AD1数据已保存: 3983
+2025-08-24 23:05:12,657 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:12.653641"}
+2025-08-24 23:05:12,659 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:12,659 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:15,136 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3983, "unit": "ADC", "timestamp": "2025-08-24T23:05:15.136607"}
+2025-08-24 23:05:15,139 - root - INFO - AD1数据保存成功: 3983
+2025-08-24 23:05:15,139 - root - INFO - AD1数据已保存: 3983
+2025-08-24 23:05:15,139 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:15.136607"}
+2025-08-24 23:05:15,142 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:15,142 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:17,653 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3983, "unit": "ADC", "timestamp": "2025-08-24T23:05:17.653915"}
+2025-08-24 23:05:17,660 - root - INFO - AD1数据保存成功: 3983
+2025-08-24 23:05:17,660 - root - INFO - AD1数据已保存: 3983
+2025-08-24 23:05:17,660 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:17.653915"}
+2025-08-24 23:05:17,662 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:17,662 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:20,137 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3980, "unit": "ADC", "timestamp": "2025-08-24T23:05:20.137490"}
+2025-08-24 23:05:20,139 - root - INFO - AD1数据保存成功: 3980
+2025-08-24 23:05:20,139 - root - INFO - AD1数据已保存: 3980
+2025-08-24 23:05:20,139 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:20.137490"}
+2025-08-24 23:05:20,142 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:20,142 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:22,654 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3980, "unit": "ADC", "timestamp": "2025-08-24T23:05:22.654159"}
+2025-08-24 23:05:22,658 - root - INFO - AD1数据保存成功: 3980
+2025-08-24 23:05:22,658 - root - INFO - AD1数据已保存: 3980
+2025-08-24 23:05:22,658 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:22.654159"}
+2025-08-24 23:05:22,660 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:22,660 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:25,138 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3982, "unit": "ADC", "timestamp": "2025-08-24T23:05:25.138563"}
+2025-08-24 23:05:25,142 - root - INFO - AD1数据保存成功: 3982
+2025-08-24 23:05:25,142 - root - INFO - AD1数据已保存: 3982
+2025-08-24 23:05:25,142 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:25.138563"}
+2025-08-24 23:05:25,145 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:25,145 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:27,655 - root - INFO - ESP32模拟器统计 - 已发送数据: 432, 平均间隔: 4.99s, 当前AD值: 3979
+2025-08-24 23:05:27,655 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3979, "unit": "ADC", "timestamp": "2025-08-24T23:05:27.655347"}
+2025-08-24 23:05:27,658 - root - INFO - AD1数据保存成功: 3979
+2025-08-24 23:05:27,658 - root - INFO - AD1数据已保存: 3979
+2025-08-24 23:05:27,659 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:27.655347"}
+2025-08-24 23:05:27,661 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:27,661 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:30,139 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4023, "unit": "ADC", "timestamp": "2025-08-24T23:05:30.139071"}
+2025-08-24 23:05:30,142 - root - INFO - AD1数据保存成功: 4023
+2025-08-24 23:05:30,142 - root - INFO - AD1数据已保存: 4023
+2025-08-24 23:05:30,142 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:30.139071"}
+2025-08-24 23:05:30,145 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:30,145 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:32,655 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4057, "unit": "ADC", "timestamp": "2025-08-24T23:05:32.655914"}
+2025-08-24 23:05:32,658 - root - INFO - AD1数据保存成功: 4057
+2025-08-24 23:05:32,658 - root - INFO - AD1数据已保存: 4057
+2025-08-24 23:05:32,658 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:32.655914"}
+2025-08-24 23:05:32,661 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:32,661 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:35,139 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4057, "unit": "ADC", "timestamp": "2025-08-24T23:05:35.139553"}
+2025-08-24 23:05:35,142 - root - INFO - AD1数据保存成功: 4057
+2025-08-24 23:05:35,142 - root - INFO - AD1数据已保存: 4057
+2025-08-24 23:05:35,142 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:35.139553"}
+2025-08-24 23:05:35,145 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:35,145 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:37,656 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4053, "unit": "ADC", "timestamp": "2025-08-24T23:05:37.656176"}
+2025-08-24 23:05:37,659 - root - INFO - AD1数据保存成功: 4053
+2025-08-24 23:05:37,659 - root - INFO - AD1数据已保存: 4053
+2025-08-24 23:05:37,659 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:37.656176"}
+2025-08-24 23:05:37,662 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:37,662 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:40,140 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4053, "unit": "ADC", "timestamp": "2025-08-24T23:05:40.140566"}
+2025-08-24 23:05:40,143 - root - INFO - AD1数据保存成功: 4053
+2025-08-24 23:05:40,143 - root - INFO - AD1数据已保存: 4053
+2025-08-24 23:05:40,143 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:40.140566"}
+2025-08-24 23:05:40,146 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:40,146 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:42,656 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4082, "unit": "ADC", "timestamp": "2025-08-24T23:05:42.656975"}
+2025-08-24 23:05:42,660 - root - INFO - AD1数据保存成功: 4082
+2025-08-24 23:05:42,660 - root - INFO - AD1数据已保存: 4082
+2025-08-24 23:05:42,661 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:42.656975"}
+2025-08-24 23:05:42,664 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:42,664 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:45,141 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4082, "unit": "ADC", "timestamp": "2025-08-24T23:05:45.141587"}
+2025-08-24 23:05:45,145 - root - INFO - AD1数据保存成功: 4082
+2025-08-24 23:05:45,145 - root - INFO - AD1数据已保存: 4082
+2025-08-24 23:05:45,146 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:45.141587"}
+2025-08-24 23:05:45,148 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:45,148 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:47,658 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4082, "unit": "ADC", "timestamp": "2025-08-24T23:05:47.658190"}
+2025-08-24 23:05:47,660 - root - INFO - AD1数据保存成功: 4082
+2025-08-24 23:05:47,660 - root - INFO - AD1数据已保存: 4082
+2025-08-24 23:05:47,661 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:47.658190"}
+2025-08-24 23:05:47,663 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:47,663 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:50,142 - root - INFO - ESP32模拟器统计 - 已发送数据: 408, 平均间隔: 4.99s, 当前AD值: 4076
+2025-08-24 23:05:50,142 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4076, "unit": "ADC", "timestamp": "2025-08-24T23:05:50.142710"}
+2025-08-24 23:05:50,146 - root - INFO - AD1数据保存成功: 4076
+2025-08-24 23:05:50,146 - root - INFO - AD1数据已保存: 4076
+2025-08-24 23:05:50,146 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:50.142710"}
+2025-08-24 23:05:50,149 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:50,149 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:52,658 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4076, "unit": "ADC", "timestamp": "2025-08-24T23:05:52.658463"}
+2025-08-24 23:05:52,661 - root - INFO - AD1数据保存成功: 4076
+2025-08-24 23:05:52,661 - root - INFO - AD1数据已保存: 4076
+2025-08-24 23:05:52,662 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:52.658463"}
+2025-08-24 23:05:52,664 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:52,664 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:55,144 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 4079, "unit": "ADC", "timestamp": "2025-08-24T23:05:55.144042"}
+2025-08-24 23:05:55,148 - root - INFO - AD1数据保存成功: 4079
+2025-08-24 23:05:55,149 - root - INFO - AD1数据已保存: 4079
+2025-08-24 23:05:55,149 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:55.144042"}
+2025-08-24 23:05:55,153 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:55,153 - root - INFO - 设备状态已保存: running
+2025-08-24 23:05:57,659 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 3803, "unit": "ADC", "timestamp": "2025-08-24T23:05:57.659899"}
+2025-08-24 23:05:57,662 - root - INFO - AD1数据保存成功: 3803
+2025-08-24 23:05:57,662 - root - INFO - AD1数据已保存: 3803
+2025-08-24 23:05:57,663 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:05:57.659899"}
+2025-08-24 23:05:57,666 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:05:57,666 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:00,144 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2163, "unit": "ADC", "timestamp": "2025-08-24T23:06:00.144711"}
+2025-08-24 23:06:00,147 - root - INFO - AD1数据保存成功: 2163
+2025-08-24 23:06:00,148 - root - INFO - AD1数据已保存: 2163
+2025-08-24 23:06:00,148 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:00.144711"}
+2025-08-24 23:06:00,151 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:00,151 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:00,611 - root - INFO - 系统状态 - MQTT: 已连接, 模拟器: 已连接
+2025-08-24 23:06:02,660 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 660, "unit": "ADC", "timestamp": "2025-08-24T23:06:02.660566"}
+2025-08-24 23:06:02,663 - root - INFO - AD1数据保存成功: 660
+2025-08-24 23:06:02,663 - root - INFO - AD1数据已保存: 660
+2025-08-24 23:06:02,663 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:02.660566"}
+2025-08-24 23:06:02,666 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:02,666 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:05,145 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 660, "unit": "ADC", "timestamp": "2025-08-24T23:06:05.145697"}
+2025-08-24 23:06:05,148 - root - INFO - AD1数据保存成功: 660
+2025-08-24 23:06:05,148 - root - INFO - AD1数据已保存: 660
+2025-08-24 23:06:05,149 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:05.145697"}
+2025-08-24 23:06:05,152 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:05,152 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:07,661 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2663, "unit": "ADC", "timestamp": "2025-08-24T23:06:07.661092"}
+2025-08-24 23:06:07,664 - root - INFO - AD1数据保存成功: 2663
+2025-08-24 23:06:07,664 - root - INFO - AD1数据已保存: 2663
+2025-08-24 23:06:07,664 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:07.661092"}
+2025-08-24 23:06:07,666 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:07,667 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:10,146 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2640, "unit": "ADC", "timestamp": "2025-08-24T23:06:10.146037"}
+2025-08-24 23:06:10,149 - root - INFO - AD1数据保存成功: 2640
+2025-08-24 23:06:10,149 - root - INFO - AD1数据已保存: 2640
+2025-08-24 23:06:10,149 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:10.146037"}
+2025-08-24 23:06:10,151 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:10,151 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:12,661 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2640, "unit": "ADC", "timestamp": "2025-08-24T23:06:12.661454"}
+2025-08-24 23:06:12,665 - root - INFO - AD1数据保存成功: 2640
+2025-08-24 23:06:12,665 - root - INFO - AD1数据已保存: 2640
+2025-08-24 23:06:12,666 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:12.661454"}
+2025-08-24 23:06:12,668 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:12,669 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:15,146 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2640, "unit": "ADC", "timestamp": "2025-08-24T23:06:15.146362"}
+2025-08-24 23:06:15,149 - root - INFO - AD1数据保存成功: 2640
+2025-08-24 23:06:15,149 - root - INFO - AD1数据已保存: 2640
+2025-08-24 23:06:15,149 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:15.146362"}
+2025-08-24 23:06:15,151 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:15,151 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:17,674 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2627, "unit": "ADC", "timestamp": "2025-08-24T23:06:17.674153"}
+2025-08-24 23:06:17,683 - root - INFO - AD1数据保存成功: 2627
+2025-08-24 23:06:17,683 - root - INFO - AD1数据已保存: 2627
+2025-08-24 23:06:17,684 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:17.674666"}
+2025-08-24 23:06:17,687 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:17,691 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:20,147 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2627, "unit": "ADC", "timestamp": "2025-08-24T23:06:20.147283"}
+2025-08-24 23:06:20,149 - root - INFO - AD1数据保存成功: 2627
+2025-08-24 23:06:20,150 - root - INFO - AD1数据已保存: 2627
+2025-08-24 23:06:20,150 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:20.147283"}
+2025-08-24 23:06:20,152 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:20,153 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:22,675 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2622, "unit": "ADC", "timestamp": "2025-08-24T23:06:22.675534"}
+2025-08-24 23:06:22,678 - root - INFO - AD1数据保存成功: 2622
+2025-08-24 23:06:22,678 - root - INFO - AD1数据已保存: 2622
+2025-08-24 23:06:22,679 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:22.675534"}
+2025-08-24 23:06:22,682 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:22,682 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:25,148 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2622, "unit": "ADC", "timestamp": "2025-08-24T23:06:25.148158"}
+2025-08-24 23:06:25,150 - root - INFO - AD1数据保存成功: 2622
+2025-08-24 23:06:25,150 - root - INFO - AD1数据已保存: 2622
+2025-08-24 23:06:25,151 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:25.148158"}
+2025-08-24 23:06:25,153 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:25,154 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:27,675 - root - INFO - ESP32模拟器统计 - 已发送数据: 444, 平均间隔: 4.99s, 当前AD值: 2622
+2025-08-24 23:06:27,675 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2622, "unit": "ADC", "timestamp": "2025-08-24T23:06:27.675928"}
+2025-08-24 23:06:27,679 - root - INFO - AD1数据保存成功: 2622
+2025-08-24 23:06:27,679 - root - INFO - AD1数据已保存: 2622
+2025-08-24 23:06:27,680 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:27.675928"}
+2025-08-24 23:06:27,682 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:27,682 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:30,148 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2617, "unit": "ADC", "timestamp": "2025-08-24T23:06:30.148452"}
+2025-08-24 23:06:30,151 - root - INFO - AD1数据保存成功: 2617
+2025-08-24 23:06:30,151 - root - INFO - AD1数据已保存: 2617
+2025-08-24 23:06:30,151 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:30.148452"}
+2025-08-24 23:06:30,154 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:30,154 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:32,676 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2617, "unit": "ADC", "timestamp": "2025-08-24T23:06:32.676738"}
+2025-08-24 23:06:32,680 - root - INFO - AD1数据保存成功: 2617
+2025-08-24 23:06:32,680 - root - INFO - AD1数据已保存: 2617
+2025-08-24 23:06:32,680 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:32.676738"}
+2025-08-24 23:06:32,683 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:32,683 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:35,148 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2617, "unit": "ADC", "timestamp": "2025-08-24T23:06:35.148931"}
+2025-08-24 23:06:35,152 - root - INFO - AD1数据保存成功: 2617
+2025-08-24 23:06:35,152 - root - INFO - AD1数据已保存: 2617
+2025-08-24 23:06:35,153 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:35.148931"}
+2025-08-24 23:06:35,156 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:35,156 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:37,677 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2617, "unit": "ADC", "timestamp": "2025-08-24T23:06:37.677128"}
+2025-08-24 23:06:37,680 - root - INFO - AD1数据保存成功: 2617
+2025-08-24 23:06:37,680 - root - INFO - AD1数据已保存: 2617
+2025-08-24 23:06:37,681 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:37.677128"}
+2025-08-24 23:06:37,683 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:37,683 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:40,150 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2626, "unit": "ADC", "timestamp": "2025-08-24T23:06:40.149749"}
+2025-08-24 23:06:40,153 - root - INFO - AD1数据保存成功: 2626
+2025-08-24 23:06:40,153 - root - INFO - AD1数据已保存: 2626
+2025-08-24 23:06:40,153 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:40.149749"}
+2025-08-24 23:06:40,156 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:40,156 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:42,678 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2626, "unit": "ADC", "timestamp": "2025-08-24T23:06:42.678333"}
+2025-08-24 23:06:42,681 - root - INFO - AD1数据保存成功: 2626
+2025-08-24 23:06:42,681 - root - INFO - AD1数据已保存: 2626
+2025-08-24 23:06:42,681 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:42.678333"}
+2025-08-24 23:06:42,684 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:42,684 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:45,150 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2626, "unit": "ADC", "timestamp": "2025-08-24T23:06:45.150745"}
+2025-08-24 23:06:45,155 - root - INFO - AD1数据保存成功: 2626
+2025-08-24 23:06:45,155 - root - INFO - AD1数据已保存: 2626
+2025-08-24 23:06:45,157 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:45.150745"}
+2025-08-24 23:06:45,161 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:45,161 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:47,679 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2608, "unit": "ADC", "timestamp": "2025-08-24T23:06:47.679777"}
+2025-08-24 23:06:47,682 - root - INFO - AD1数据保存成功: 2608
+2025-08-24 23:06:47,682 - root - INFO - AD1数据已保存: 2608
+2025-08-24 23:06:47,682 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:47.679777"}
+2025-08-24 23:06:47,685 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:47,685 - root - INFO - 设备状态已保存: running
+2025-08-24 23:06:50,152 - root - INFO - ESP32模拟器统计 - 已发送数据: 420, 平均间隔: 4.99s, 当前AD值: 2580
+2025-08-24 23:06:50,152 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2580, "unit": "ADC", "timestamp": "2025-08-24T23:06:50.152141"}
+2025-08-24 23:06:50,157 - root - INFO - AD1数据保存成功: 2580
+2025-08-24 23:06:50,158 - root - INFO - AD1数据已保存: 2580
+2025-08-24 23:06:50,158 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T23:06:50.152141"}
+2025-08-24 23:06:50,161 - root - INFO - 设备状态保存成功: running
+2025-08-24 23:06:50,161 - root - INFO - 设备状态已保存: running
