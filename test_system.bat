@@ -1,62 +1,121 @@
 @echo off
+setlocal enabledelayedexpansion
 chcp 65001 >nul
-title ESP32后台系统测试
+title ESP32 System Test
 echo ========================================
-echo ESP32后台系统 - 功能测试脚本
+echo ESP32 Backend System - Function Test
 echo ========================================
 echo.
 
-echo 正在启动测试模式...
+echo Starting test mode...
 echo.
 
-echo 1. 测试数据库连接...
-python -c "from database import DatabaseManager; db = DatabaseManager('test.db'); print('[成功] 数据库连接测试通过'); db.save_ad1_data(1234); db.save_io1_control(True); print('[成功] 数据库写入测试通过')" 2>nul
+echo 1. Testing database connection...
+python -c "from database import DatabaseManager; db = DatabaseManager('test.db'); print('[SUCCESS] Database connection test passed'); db.save_ad1_data(1234); db.save_io1_control(True); print('[SUCCESS] Database write test passed')" 2>nul
 if %errorlevel% neq 0 (
-    echo [错误] 数据库测试失败，请检查database.py文件
+    echo [ERROR] Database test failed, please check database.py file
+    echo Error code: %errorlevel%
+) else (
+    echo [SUCCESS] Database test completed
 )
 
 echo.
-echo 2. 测试MQTT客户端...
-python -c "from mqtt_client import MQTTClient; from database import DatabaseManager; db = DatabaseManager('test.db'); mqtt = MQTTClient('config.ini', db); print('[成功] MQTT客户端初始化测试通过')" 2>nul
+echo 2. Testing MQTT client...
+python -c "from mqtt_client import MQTTClient; from database import DatabaseManager; db = DatabaseManager('test.db'); mqtt = MQTTClient('config.ini', db); print('[SUCCESS] MQTT client initialization test passed')" 2>nul
 if %errorlevel% neq 0 (
-    echo [错误] MQTT客户端测试失败，请检查mqtt_client.py文件
+    echo [ERROR] MQTT client test failed, please check mqtt_client.py file
+    echo Error code: %errorlevel%
+) else (
+    echo [SUCCESS] MQTT client test completed
 )
 
 echo.
-echo 3. 测试ESP32模拟器...
-python -c "from esp32_simulator import ESP32Simulator; sim = ESP32Simulator('config.ini'); print('[成功] ESP32模拟器初始化测试通过'); print('[信息] 模拟器状态:', sim.get_status())" 2>nul
+echo 3. Testing ESP32 simulator...
+python -c "from esp32_simulator import ESP32Simulator; sim = ESP32Simulator('config.ini'); print('[SUCCESS] ESP32 simulator initialization test passed'); print('[INFO] Simulator status:', sim.get_status())" 2>nul
 if %errorlevel% neq 0 (
-    echo [错误] ESP32模拟器测试失败，请检查esp32_simulator.py文件
+    echo [ERROR] ESP32 simulator test failed, please check esp32_simulator.py file
+    echo Error code: %errorlevel%
+) else (
+    echo [SUCCESS] ESP32 simulator test completed
 )
 
 echo.
-echo 4. 测试Web服务器...
-python -c "from web_server import WebServer; from database import DatabaseManager; from mqtt_client import MQTTClient; db = DatabaseManager('test.db'); mqtt = MQTTClient('config.ini', db); web = WebServer('config.ini', db, mqtt); print('[成功] Web服务器初始化测试通过')" 2>nul
+echo 4. Testing Web server...
+python -c "from web_server import WebServer; from database import DatabaseManager; from mqtt_client import MQTTClient; db = DatabaseManager('test.db'); mqtt = MQTTClient('config.ini', db); web = WebServer('config.ini', db, mqtt); print('[SUCCESS] Web server initialization test passed')" 2>nul
 if %errorlevel% neq 0 (
-    echo [错误] Web服务器测试失败，请检查web_server.py文件
+    echo [ERROR] Web server test failed, please check web_server.py file
+    echo Error code: %errorlevel%
+) else (
+    echo [SUCCESS] Web server test completed
 )
 
 echo.
-echo 5. 测试配置文件...
-python -c "import configparser; config = configparser.ConfigParser(); config.read('config.ini'); print('[成功] 配置文件读取测试通过'); print('[信息] MQTT代理: ' + config.get('MQTT', 'broker') + ':' + config.get('MQTT', 'port')); print('[信息] Web服务器: ' + config.get('WEB_SERVER', 'host') + ':' + config.get('WEB_SERVER', 'port'))" 2>nul
+echo 5. Testing configuration file...
+python -c "import configparser; config = configparser.ConfigParser(); config.read('config.ini'); print('[SUCCESS] Configuration file read test passed'); print('[INFO] MQTT broker: ' + config.get('MQTT', 'broker') + ':' + config.get('MQTT', 'port')); print('[INFO] Web server: ' + config.get('WEB_SERVER', 'host') + ':' + config.get('WEB_SERVER', 'port'))" 2>nul
 if %errorlevel% neq 0 (
-    echo [错误] 配置文件测试失败，请检查config.ini文件
+    echo [ERROR] Configuration file test failed, please check config.ini file
+    echo Error code: %errorlevel%
+) else (
+    echo [SUCCESS] Configuration file test completed
 )
 
 echo.
-echo 6. 清理测试文件...
+echo 6. Cleaning up test files...
 if exist "test.db" (
     del "test.db"
-    echo [成功] 测试数据库已清理
+    echo [SUCCESS] Test database cleaned up
+) else (
+    echo [INFO] No test database to clean up
 )
 
 echo.
 echo ========================================
-echo 所有测试完成！
+echo All tests completed!
 echo ========================================
 echo.
-echo 如果所有测试都显示[成功]，说明系统配置正确
-echo 如果出现[错误]，请检查相应的配置和依赖
+
+REM Count success and error messages
+set SUCCESS_COUNT=0
+set ERROR_COUNT=0
+
+REM Check for success messages in the output
+findstr /c:"[SUCCESS]" test_system.bat >nul 2>&1
+if %errorlevel% == 0 (
+    for /f %%i in ('findstr /c:"[SUCCESS]" test_system.bat ^| find /c /v ""') do set SUCCESS_COUNT=%%i
+)
+
+REM Check for error messages in the output
+findstr /c:"[ERROR]" test_system.bat >nul 2>&1
+if %errorlevel% == 0 (
+    for /f %%i in ('findstr /c:"[ERROR]" test_system.bat ^| find /c /v ""') do set ERROR_COUNT=%%i
+)
+
+echo Test Summary:
+echo - Successful tests: %SUCCESS_COUNT%
+echo - Failed tests: %ERROR_COUNT%
 echo.
-echo 按任意键退出...
+
+if %ERROR_COUNT% == 0 (
+    echo [SUCCESS] All tests passed! System is properly configured.
+    echo You can now run start_system.bat to start the ESP32 backend.
+) else (
+    echo [WARNING] Some tests failed. Please check the error messages above.
+    echo Common solutions:
+    echo 1. Run install_dependencies.bat to install Python packages
+    echo 2. Run install_mqtt.bat to setup MQTT broker
+    echo 3. Check if all required files exist
+    echo 4. Verify Python environment and dependencies
+)
+
+echo.
+echo ========================================
+echo Test process completed
+echo ========================================
+echo.
+echo Next steps:
+echo 1. If all tests passed, run start_system.bat
+echo 2. If tests failed, fix the issues and run this script again
+echo 3. Check the logs folder for detailed error information
+echo.
+echo Press any key to close this window...
 pause >nul
