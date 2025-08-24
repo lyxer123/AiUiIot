@@ -1,6 +1,13 @@
 package com.example.aiiot.model;
 
+import android.util.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class ESP32Data {
+    private static final String TAG = "ESP32Data";
     private int ad1Value;
     private boolean io1State;
     private long timestamp;
@@ -29,7 +36,30 @@ public class ESP32Data {
     public void setDeviceStatus(String deviceStatus) { this.deviceStatus = deviceStatus; }
 
     public String getFormattedTimestamp() {
-        return new java.text.SimpleDateFormat("HH:mm:ss", java.util.Locale.getDefault())
-                .format(new java.util.Date(timestamp));
+        try {
+            if (timestamp <= 0) {
+                return "无效时间";
+            }
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+            return sdf.format(new Date(timestamp));
+        } catch (Exception e) {
+            Log.e(TAG, "时间格式化失败", e);
+            return "时间错误";
+        }
+    }
+    
+    public String getFullFormattedTimestamp() {
+        try {
+            if (timestamp <= 0) {
+                return "无效时间";
+            }
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            return sdf.format(new Date(timestamp));
+        } catch (Exception e) {
+            Log.e(TAG, "完整时间格式化失败", e);
+            return "时间错误";
+        }
     }
 }

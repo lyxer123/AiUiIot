@@ -106,6 +106,9 @@ public class DataMonitorActivity extends AppCompatActivity {
     }
     
     private void loadData() {
+        btnRefresh.setEnabled(false);
+        btnRefresh.setText("加载中...");
+        
         networkManager.getAD1Data(currentLimit, new NetworkManager.DataCallback<List<ESP32Data>>() {
             @Override
             public void onSuccess(List<ESP32Data> data) {
@@ -113,6 +116,8 @@ public class DataMonitorActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         updateDataDisplay(data);
+                        btnRefresh.setEnabled(true);
+                        btnRefresh.setText("刷新数据");
                     }
                 });
             }
@@ -122,7 +127,10 @@ public class DataMonitorActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(DataMonitorActivity.this, "数据加载失败: " + error, Toast.LENGTH_SHORT).show();
+                        btnRefresh.setEnabled(true);
+                        btnRefresh.setText("刷新数据");
+                        Toast.makeText(DataMonitorActivity.this, "数据加载失败: " + error, Toast.LENGTH_LONG).show();
+                        updateDataDisplay(new ArrayList<>()); // 显示空数据
                     }
                 });
             }
@@ -141,7 +149,8 @@ public class DataMonitorActivity extends AppCompatActivity {
                     public void run() {
                         updateDataDisplay(data);
                         btnRefresh.setEnabled(true);
-                        btnRefresh.setText("刷新");
+                        btnRefresh.setText("刷新数据");
+                        Toast.makeText(DataMonitorActivity.this, "数据刷新成功", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -151,9 +160,9 @@ public class DataMonitorActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(DataMonitorActivity.this, "数据刷新失败: " + error, Toast.LENGTH_SHORT).show();
                         btnRefresh.setEnabled(true);
-                        btnRefresh.setText("刷新");
+                        btnRefresh.setText("刷新数据");
+                        Toast.makeText(DataMonitorActivity.this, "数据刷新失败: " + error, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -164,16 +173,18 @@ public class DataMonitorActivity extends AppCompatActivity {
         btnLoadMore.setEnabled(false);
         btnLoadMore.setText("加载中...");
         
-        currentLimit += 50;
-        networkManager.getAD1Data(currentLimit, new NetworkManager.DataCallback<List<ESP32Data>>() {
+        int newLimit = currentLimit + 50;
+        networkManager.getAD1Data(newLimit, new NetworkManager.DataCallback<List<ESP32Data>>() {
             @Override
             public void onSuccess(List<ESP32Data> data) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        currentLimit = newLimit;
                         updateDataDisplay(data);
                         btnLoadMore.setEnabled(true);
                         btnLoadMore.setText("加载更多");
+                        Toast.makeText(DataMonitorActivity.this, "成功加载更多数据", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -183,10 +194,9 @@ public class DataMonitorActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        currentLimit -= 50; // 恢复之前的限制
-                        Toast.makeText(DataMonitorActivity.this, "加载更多失败: " + error, Toast.LENGTH_SHORT).show();
                         btnLoadMore.setEnabled(true);
                         btnLoadMore.setText("加载更多");
+                        Toast.makeText(DataMonitorActivity.this, "加载更多失败: " + error, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -195,20 +205,41 @@ public class DataMonitorActivity extends AppCompatActivity {
     
     private void updateDataDisplay(List<ESP32Data> data) {
         if (data != null && !data.isEmpty()) {
-            dataList.clear();
-            dataList.addAll(data);
-            dataAdapter.notifyDataSetChanged();
+            // 验证数据有效性
+            List<ESP32Data> validData = new ArrayList<>();
+            for (ESP32Data item : data) {
+                if (item.getAd1Value() >= 0 && item.getTimestamp() > 0) {
+                    validData.add(item);
+                }
+            }
             
-            // 更新当前值显示
-            ESP32Data latestData = data.get(0);
-            tvCurrentValue.setText("当前AD值: " + latestData.getAd1Value());
-            tvLastUpdate.setText("最后更新: " + latestData.getFormattedTimestamp());
-            tvDataCount.setText("数据条数: " + data.size());
+            if (!validData.isEmpty()) {
+                dataList.clear();
+                dataList.addAll(validData);
+                dataAdapter.notifyDataSetChanged();
+                
+                // 更新当前值显示
+                ESP32Data latestData = validData.get(0);
+                tvCurrentValue.setText("当前AD值: " + latestData.getAd1Value());
+                tvLastUpdate.setText("最后更新: " + latestData.getFormattedTimestamp());
+                tvDataCount.setText("数据条数: " + validData.size());
+            } else {
+                showNoDataMessage();
+            }
         } else {
-            tvCurrentValue.setText("当前AD值: 无数据");
-            tvLastUpdate.setText("最后更新: 无");
-            tvDataCount.setText("数据条数: 0");
+            showNoDataMessage();
         }
+    }
+    
+    private void showNoDataMessage() {
+        dataList.clear();
+        dataAdapter.notifyDataSetChanged();
+        
+        tvCurrentValue.setText("当前AD值: 无数据");
+        tvLastUpdate.setText("最后更新: 无");
+        tvDataCount.setText("数据条数: 0");
+        
+        Toast.makeText(this, "暂无有效数据", Toast.LENGTH_SHORT).show();
     }
     
     @Override

@@ -245,7 +245,7 @@ AiUiIot/
 ├── main.py                  # 主程序入口
 ├── database.py              # 数据库管理模块
 ├── mqtt_client.py           # MQTT客户端模块
-├── esp32_simulator.py.disabled  # ESP32模拟器（已禁用）
+├── esp32_simulator.py           # ESP32模拟器（已启用）
 ├── web_server.py            # Web服务器模块
 ├── web_test.html            # Web测试页面
 ├── install_mqtt.bat         # MQTT安装脚本
@@ -325,7 +325,7 @@ start_system.bat
 ### 更新日志
 - v1.0.0 - 初始版本，基础功能实现
 - 支持AD1数据采集和IO1控制
-- 集成ESP32模拟器（已禁用）
+- 集成ESP32模拟器（智能AD值模拟）
 - 提供完整的Web API接口
 
 ## 许可证

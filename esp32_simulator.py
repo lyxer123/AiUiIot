@@ -52,18 +52,47 @@ class ESP32Simulator:
         self.ad1_generator = self.create_ad1_generator()
         
     def create_ad1_generator(self):
-        """创建AD1数据生成器"""
+        """创建AD1数据生成器 - 增强版"""
+        # 初始化基础值
         base_value = random.randint(self.ad1_min, self.ad1_max)
+        trend = random.choice([-1, 1])  # 趋势方向
+        trend_strength = random.randint(5, 20)  # 趋势强度
+        noise_level = random.randint(10, 30)  # 噪声水平
+        
         while True:
-            # 模拟真实的AD值变化（缓慢变化，偶尔跳跃）
-            if random.random() < 0.1:  # 10%概率跳跃
+            # 模拟真实的AD值变化模式
+            if random.random() < 0.05:  # 5%概率大幅跳跃（模拟环境突变）
                 base_value = random.randint(self.ad1_min, self.ad1_max)
+                trend = random.choice([-1, 1])
+                trend_strength = random.randint(5, 20)
+                noise_level = random.randint(10, 30)
+            elif random.random() < 0.15:  # 15%概率趋势改变
+                trend = random.choice([-1, 1])
+                trend_strength = random.randint(5, 20)
+            elif random.random() < 0.25:  # 25%概率噪声水平变化
+                noise_level = random.randint(10, 30)
             else:
-                # 缓慢变化
-                change = random.randint(-50, 50)
-                base_value = max(self.ad1_min, min(self.ad1_max, base_value + change))
+                # 70%概率正常变化（趋势+噪声）
+                # 应用趋势
+                trend_change = trend * trend_strength
+                base_value += trend_change
+                
+                # 添加噪声
+                noise = random.randint(-noise_level, noise_level)
+                base_value += noise
+                
+                # 确保值在范围内
+                if base_value < self.ad1_min:
+                    base_value = self.ad1_min
+                    trend = 1  # 反转趋势
+                elif base_value > self.ad1_max:
+                    base_value = self.ad1_max
+                    trend = -1  # 反转趋势
             
-            yield base_value
+            # 确保值在有效范围内
+            base_value = max(self.ad1_min, min(self.ad1_max, base_value))
+            
+            yield int(base_value)
     
     def on_connect(self, client, userdata, flags, rc):
         """MQTT连接回调"""
@@ -139,7 +168,10 @@ class ESP32Simulator:
         logging.info("ESP32模拟器已停止")
     
     def simulation_loop(self):
-        """模拟循环"""
+        """模拟循环 - 增强版"""
+        data_count = 0
+        start_time = time.time()
+        
         while self.simulation_running and self.connected:
             try:
                 # 生成AD1数据
@@ -148,6 +180,14 @@ class ESP32Simulator:
                 
                 # 发布设备状态
                 self.publish_status("running")
+                
+                # 统计信息
+                data_count += 1
+                if data_count % 12 == 0:  # 每分钟输出一次统计（假设5秒间隔）
+                    elapsed_time = time.time() - start_time
+                    avg_interval = elapsed_time / data_count
+                    logging.info(f"ESP32模拟器统计 - 已发送数据: {data_count}, "
+                               f"平均间隔: {avg_interval:.2f}s, 当前AD值: {ad1_value}")
                 
                 # 等待下次模拟
                 time.sleep(self.simulation_interval)
@@ -247,12 +287,19 @@ class ESP32Simulator:
             logging.error(f"ESP32模拟器断开连接失败: {e}")
     
     def get_status(self):
-        """获取模拟器状态"""
+        """获取模拟器状态 - 增强版"""
         return {
             "enabled": self.enabled,
             "connected": self.connected,
             "simulation_running": self.simulation_running,
             "io1_state": self.io1_state,
             "ad1_range": f"{self.ad1_min}-{self.ad1_max}",
-            "simulation_interval": self.simulation_interval
+            "simulation_interval": self.simulation_interval,
+            "mqtt_broker": f"{self.broker}:{self.port}",
+            "topics": {
+                "ad1_data": self.ad1_topic,
+                "io1_control": self.io1_control_topic,
+                "status": self.status_topic
+            },
+            "last_update": datetime.now().isoformat()
         }

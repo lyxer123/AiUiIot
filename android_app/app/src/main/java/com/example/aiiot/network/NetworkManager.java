@@ -12,8 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -32,6 +35,9 @@ public class NetworkManager {
     private String baseUrl;
     private Context context;
     private SharedPreferences prefs;
+    
+    // 时间格式解析器
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
     
     public NetworkManager(Context context) {
         this.context = context;
@@ -148,7 +154,11 @@ public class NetworkManager {
                                 JSONObject item = dataArray.getJSONObject(i);
                                 ESP32Data data = new ESP32Data();
                                 data.setAd1Value(item.getInt("value"));
-                                data.setTimestamp(item.getLong("timestamp"));
+                                
+                                // 处理时间戳 - 支持多种格式
+                                long timestamp = parseTimestamp(item.get("timestamp"));
+                                data.setTimestamp(timestamp);
+                                
                                 dataList.add(data);
                             }
                             
@@ -164,6 +174,33 @@ public class NetworkManager {
                 }
             }
         });
+    }
+    
+    // 解析时间戳 - 支持多种格式
+    private long parseTimestamp(Object timestampObj) {
+        try {
+            if (timestampObj instanceof Long) {
+                // 如果是毫秒级时间戳
+                return (Long) timestampObj;
+            } else if (timestampObj instanceof String) {
+                String timestampStr = (String) timestampObj;
+                
+                // 尝试解析字符串时间戳
+                try {
+                    return dateFormat.parse(timestampStr).getTime();
+                } catch (ParseException e) {
+                    Log.w(TAG, "时间戳解析失败: " + timestampStr, e);
+                    // 如果解析失败，返回当前时间
+                    return System.currentTimeMillis();
+                }
+            } else {
+                Log.w(TAG, "未知的时间戳格式: " + timestampObj);
+                return System.currentTimeMillis();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "时间戳解析异常", e);
+            return System.currentTimeMillis();
+        }
     }
     
     // 控制IO1

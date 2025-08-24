@@ -1,5 +1,6 @@
 package com.example.aiiot.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.example.aiiot.model.ESP32Data;
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
+    private static final String TAG = "DataAdapter";
     
     private List<ESP32Data> dataList;
     
@@ -30,13 +32,22 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
-        ESP32Data data = dataList.get(position);
-        holder.bind(data);
+        try {
+            ESP32Data data = dataList.get(position);
+            if (data != null) {
+                holder.bind(data, position);
+            } else {
+                holder.bindError("数据无效", position);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "绑定数据失败，位置: " + position, e);
+            holder.bindError("数据错误", position);
+        }
     }
     
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return dataList != null ? dataList.size() : 0;
     }
     
     public void updateData(List<ESP32Data> newData) {
@@ -54,10 +65,34 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
             tvIndex = itemView.findViewById(R.id.tv_index);
         }
         
-        public void bind(ESP32Data data) {
-            tvValue.setText("AD值: " + data.getAd1Value());
-            tvTimestamp.setText("时间: " + data.getFormattedTimestamp());
-            tvIndex.setText("#" + (getAdapterPosition() + 1));
+        public void bind(ESP32Data data, int position) {
+            try {
+                // 验证数据有效性
+                if (data.getAd1Value() >= 0) {
+                    tvValue.setText("AD值: " + data.getAd1Value());
+                } else {
+                    tvValue.setText("AD值: 无效");
+                }
+                
+                // 验证时间戳
+                if (data.getTimestamp() > 0) {
+                    tvTimestamp.setText("时间: " + data.getFormattedTimestamp());
+                } else {
+                    tvTimestamp.setText("时间: 无效");
+                }
+                
+                tvIndex.setText("#" + (position + 1));
+                
+            } catch (Exception e) {
+                Log.e(TAG, "绑定数据项失败", e);
+                bindError("数据异常", position);
+            }
+        }
+        
+        public void bindError(String errorMessage, int position) {
+            tvValue.setText("错误: " + errorMessage);
+            tvTimestamp.setText("位置: " + (position + 1));
+            tvIndex.setText("#" + (position + 1));
         }
     }
 }

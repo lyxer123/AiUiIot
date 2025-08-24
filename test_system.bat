@@ -24,7 +24,10 @@ if %errorlevel% neq 0 (
 
 echo.
 echo 3. 测试ESP32模拟器...
-echo [信息] ESP32模拟器功能已禁用，跳过测试
+python -c "from esp32_simulator import ESP32Simulator; sim = ESP32Simulator('config.ini'); print('[成功] ESP32模拟器初始化测试通过'); print('[信息] 模拟器状态:', sim.get_status())" 2>nul
+if %errorlevel% neq 0 (
+    echo [错误] ESP32模拟器测试失败，请检查esp32_simulator.py文件
+)
 
 echo.
 echo 4. 测试Web服务器...
