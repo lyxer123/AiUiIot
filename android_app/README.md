@@ -1,50 +1,71 @@
-# ESP32智能控制系统 - Android APP
+# ESP32智能控制系统 - Android应用
 
 ## 📱 项目简介
 
-这是一个专为ESP32智能控制系统设计的Android原生应用，提供以下核心功能：
+这是一个基于Android Studio开发的ESP32智能控制系统移动应用，提供完整的用户管理、设备控制和数据监控功能。
 
-- **用户管理**: 本地用户注册和登录系统
-- **实时监控**: 显示AD1通道的实时数据
-- **远程控制**: 通过手机控制IO1开关状态
-- **状态同步**: 实时同步设备状态和控制状态
-- **网络配置**: 可配置服务器IP地址和端口
+## ✨ 主要功能
+
+### 1. 用户管理
+- **用户注册**: 支持新用户注册，包含用户名、密码和邮箱
+- **用户登录**: 安全的用户身份验证系统
+- **本地存储**: 使用SQLite数据库存储用户信息
+- **会话管理**: 自动保存登录状态
+
+### 2. 网络连接
+- **服务器连接**: 通过WiFi连接到ESP32后端服务器
+- **IP配置**: 可配置服务器IP地址和端口
+- **连接测试**: 实时测试网络连接状态
+- **HTTP通信**: 使用OkHttp3进行REST API调用
+
+### 3. 设备控制
+- **IO1控制**: 实时控制ESP32的IO1引脚开关状态
+- **状态监控**: 实时显示MQTT连接状态和系统运行状态
+- **自动刷新**: 每5秒自动刷新设备状态
+- **手动控制**: 支持手动开关控制
+
+### 4. 数据监控
+- **AD1数据**: 实时显示ESP32的AD1通道数据
+- **历史记录**: 查看数据采集的历史记录
+- **分页加载**: 支持分页加载更多历史数据
+- **自动更新**: 每10秒自动刷新数据
 
 ## 🏗️ 技术架构
 
 ### 开发环境
 - **语言**: Java 8+
 - **最低SDK**: Android 7.0 (API 24)
-- **目标SDK**: Android 14 (API 34)
+- **目标SDK**: Android 14 (API 36)
 - **开发工具**: Android Studio
 
 ### 核心技术
 - **网络通信**: OkHttp3 + JSON
-- **数据存储**: SharedPreferences
-- **UI框架**: Material Design + RecyclerView
+- **数据存储**: SQLite + SharedPreferences
+- **UI框架**: Material Design + RecyclerView + CardView
 - **异步处理**: Handler + Runnable
+- **架构模式**: MVC模式
 
 ### 项目结构
 ```
-android_app/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/esp32/control/
-│   │   │   ├── MainActivity.java          # 主活动
-│   │   │   ├── ControlActivity.java       # 控制页面
-│   │   │   ├── DataActivity.java          # 数据监控
-│   │   │   ├── SettingsActivity.java      # 设置页面
-│   │   │   ├── network/
-│   │   │   │   └── NetworkManager.java    # 网络管理
-│   │   │   ├── model/
-│   │   │   │   └── AD1Data.java          # 数据模型
-│   │   │   └── adapter/
-│   │   │       └── DataAdapter.java       # 数据适配器
-│   │   ├── res/                           # 资源文件
-│   │   └── AndroidManifest.xml            # 应用清单
-│   ├── build.gradle                       # 构建配置
-│   └── proguard-rules.pro                 # 混淆规则
-└── README.md                              # 项目说明
+AIIOT/
+├── app/src/main/java/com/example/aiiot/
+│   ├── MainActivity.java              # 主活动（登录/注册）
+│   ├── ControlActivity.java           # 设备控制页面
+│   ├── DataMonitorActivity.java       # 数据监控页面
+│   ├── SettingsActivity.java          # 设置页面
+│   ├── model/
+│   │   ├── User.java                  # 用户数据模型
+│   │   └── ESP32Data.java            # ESP32数据模型
+│   ├── network/
+│   │   └── NetworkManager.java        # 网络管理器
+│   ├── database/
+│   │   └── UserDatabaseHelper.java    # 用户数据库管理器
+│   └── adapter/
+│       └── DataAdapter.java           # 数据适配器
+├── app/src/main/res/
+│   ├── layout/                        # 布局文件
+│   └── drawable/                      # 资源文件
+└── README.md                          # 项目说明
 ```
 
 ## 🚀 快速开始
@@ -53,11 +74,12 @@ android_app/
 
 #### Android Studio
 1. 下载并安装 [Android Studio](https://developer.android.com/studio)
-2. 确保已安装Android SDK 24-34
+2. 确保已安装Android SDK 24-36
 
 #### 后端服务
 确保你的ESP32后端系统正在运行：
 ```bash
+cd AiUiIot
 python main.py
 ```
 
@@ -65,7 +87,7 @@ python main.py
 
 1. 打开Android Studio
 2. 选择"Open an existing Android Studio project"
-3. 选择项目目录：`android_app/`
+3. 选择项目目录：`AIIOT/`
 4. 等待Gradle同步完成
 
 ### 3. 配置网络
@@ -78,9 +100,10 @@ this.baseUrl = prefs.getString("server_url", "http://YOUR_IP:5000/api");
 
 #### 或在运行时配置
 1. 启动应用
-2. 进入"设置"页面
-3. 修改服务器地址
-4. 点击"保存"和"测试连接"
+2. 注册并登录账号
+3. 进入"系统设置"页面
+4. 修改服务器地址
+5. 点击"保存"和"测试连接"
 
 ### 4. 构建运行
 
@@ -89,31 +112,43 @@ this.baseUrl = prefs.getString("server_url", "http://YOUR_IP:5000/api");
 3. 选择目标设备
 4. 等待应用安装和启动
 
-## 📋 功能说明
+## 📋 使用说明
 
-### 主页面 (MainActivity)
-- **用户登录**: 用户名密码登录
-- **用户注册**: 新用户注册
-- **功能导航**: 跳转到各个功能页面
-- **状态显示**: 显示当前登录用户
+### 基本操作流程
 
-### 控制页面 (ControlActivity)
-- **连接状态**: 实时监控MQTT和设备连接
-- **IO1控制**: 开关控制界面
-- **状态同步**: 自动同步设备状态
-- **连接测试**: 测试网络连接
+1. **启动应用**
+   - 首次使用需要注册账号
+   - 输入用户名和密码登录
 
-### 数据监控页面 (DataActivity)
-- **实时数据**: 显示AD1通道的实时数值
-- **历史数据**: 查看数据采集历史记录
-- **数据列表**: 支持分页加载
-- **自动刷新**: 定时更新数据
+2. **配置网络**
+   - 进入"系统设置"页面
+   - 输入服务器IP地址（例如：http://192.168.1.100:5000/api）
+   - 测试连接是否正常
 
-### 设置页面 (SettingsActivity)
-- **服务器配置**: 修改服务器IP地址
-- **连接测试**: 测试网络连接状态
-- **设置重置**: 恢复默认配置
-- **状态显示**: 显示当前连接状态
+3. **监控数据**
+   - 进入"数据监控"页面
+   - 查看AD1通道实时数据
+   - 浏览历史数据记录
+
+4. **控制设备**
+   - 进入"设备控制"页面
+   - 查看连接状态
+   - 使用开关控制IO1
+
+### 网络配置说明
+
+#### 本地网络连接
+- 手机和服务器必须在同一WiFi网络
+- 服务器默认端口：5000
+- 支持HTTP和HTTPS协议
+- 默认服务器地址：http://192.168.1.100:5000/api
+
+#### 修改服务器地址
+在设置页面输入完整的API地址，格式如下：
+```
+http://[服务器IP]:[端口]/api
+例如：http://192.168.1.100:5000/api
+```
 
 ## 🔧 配置说明
 
@@ -121,7 +156,7 @@ this.baseUrl = prefs.getString("server_url", "http://YOUR_IP:5000/api");
 ```java
 // NetworkManager.java
 serverConfig: {
-  baseUrl: 'http://10.1.95.252:5000/api', // 修改为你的服务器IP
+  baseUrl: 'http://192.168.1.100:5000/api', // 修改为你的服务器IP
   timeout: 10000  // 请求超时时间(毫秒)
 }
 ```
@@ -144,35 +179,27 @@ if (password.length() < 6) {
 }
 ```
 
-## 📱 使用说明
+## 📱 界面说明
 
-### 基本操作流程
+### 主界面
+- **登录/注册**: 用户身份验证
+- **功能导航**: 跳转到各个功能页面
+- **用户状态**: 显示当前登录用户
 
-1. **启动应用**
-   - 首次使用需要注册账号
-   - 输入用户名和密码登录
+### 设备控制界面
+- **系统状态**: 显示MQTT连接和设备状态
+- **IO1控制**: 开关控制界面
+- **连接测试**: 测试网络连接
 
-2. **配置网络**
-   - 进入"设置"页面
-   - 输入服务器IP地址
-   - 测试连接是否正常
+### 数据监控界面
+- **实时数据**: 显示当前AD值和更新时间
+- **历史数据**: 分页显示历史记录
+- **数据操作**: 刷新和加载更多
 
-3. **监控数据**
-   - 进入"数据监控"页面
-   - 查看AD1通道实时数据
-   - 浏览历史数据记录
-
-4. **控制设备**
-   - 进入"设备控制"页面
-   - 查看连接状态
-   - 使用开关控制IO1
-
-### 注意事项
-
-- **网络要求**: 手机和服务器必须在同一WiFi网络
-- **权限要求**: 需要网络访问权限
-- **实时性**: 数据每5-10秒自动刷新，也可手动刷新
-- **错误处理**: 网络异常时会显示错误提示
+### 设置界面
+- **服务器配置**: 修改服务器地址
+- **连接测试**: 测试网络连接
+- **设置重置**: 恢复默认配置
 
 ## 🐛 常见问题
 
@@ -226,4 +253,5 @@ if (password.length() < 6) {
 
 **版本**: 1.0.0  
 **更新时间**: 2024年1月  
-**兼容性**: Android 7.0+ (API 24+)
+**兼容性**: Android 7.0+ (API 24+)  
+**后端要求**: ESP32 Python后端系统
