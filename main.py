@@ -18,7 +18,7 @@ from datetime import datetime
 # 导入自定义模块
 from database import DatabaseManager
 from mqtt_client import MQTTClient
-from esp32_simulator import ESP32Simulator
+# from esp32_simulator import ESP32Simulator  # 已禁用ESP32模拟器
 from web_server import WebServer
 
 class ESP32BackendSystem:
@@ -34,7 +34,7 @@ class ESP32BackendSystem:
         # 系统组件
         self.database_manager = None
         self.mqtt_client = None
-        self.esp32_simulator = None
+        # self.esp32_simulator = None  # 已禁用ESP32模拟器
         self.web_server = None
         
         # 运行状态
@@ -90,9 +90,9 @@ class ESP32BackendSystem:
             self.mqtt_client = MQTTClient(self.config_file, self.database_manager)
             logging.info("MQTT客户端初始化完成")
             
-            # 初始化ESP32模拟器
-            self.esp32_simulator = ESP32Simulator(self.config_file)
-            logging.info("ESP32模拟器初始化完成")
+            # 初始化ESP32模拟器（已禁用）
+            # self.esp32_simulator = ESP32Simulator(self.config_file)
+            logging.info("ESP32模拟器已禁用")
             
             # 初始化Web服务器
             self.web_server = WebServer(self.config_file, self.database_manager, self.mqtt_client)
@@ -114,9 +114,10 @@ class ESP32BackendSystem:
             self.mqtt_client.connect()
             time.sleep(2)  # 等待连接建立
             
-            # 启动ESP32模拟器
-            self.esp32_simulator.connect()
-            time.sleep(2)  # 等待连接建立
+            # 启动ESP32模拟器（已禁用）
+            # self.esp32_simulator.connect()
+            # time.sleep(2)  # 等待连接建立
+            logging.info("ESP32模拟器启动已跳过")
             
             # 启动Web服务器（在新线程中）
             web_thread = threading.Thread(target=self.web_server.start, daemon=True)
@@ -135,9 +136,9 @@ class ESP32BackendSystem:
         try:
             logging.info("正在停止系统组件...")
             
-            # 停止ESP32模拟器
-            if self.esp32_simulator:
-                self.esp32_simulator.disconnect()
+            # 停止ESP32模拟器（已禁用）
+            # if self.esp32_simulator:
+            #     self.esp32_simulator.disconnect()
             
             # 停止MQTT客户端
             if self.mqtt_client:
@@ -185,12 +186,12 @@ class ESP32BackendSystem:
                 try:
                     # 检查组件状态
                     mqtt_connected = self.mqtt_client.get_connection_status()
-                    simulator_connected = self.esp32_simulator.connected if self.esp32_simulator else False
+                    # simulator_connected = self.esp32_simulator.connected if self.esp32_simulator else False  # 已禁用
                     
                     # 输出状态信息
                     if self.running and time.time() % 60 < 1:  # 每分钟输出一次状态
                         logging.info(f"系统状态 - MQTT: {'已连接' if mqtt_connected else '未连接'}, "
-                                   f"模拟器: {'已连接' if simulator_connected else '未连接'}")
+                                   f"模拟器: 已禁用")
                     
                     time.sleep(1)
                     
