@@ -12574,3 +12574,177 @@
 2025-08-24 20:02:09,565 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T20:02:09.555191"}
 2025-08-24 20:02:09,568 - root - INFO - 设备状态保存成功: running
 2025-08-24 20:02:09,568 - root - INFO - 设备状态已保存: running
+2025-08-24 21:46:40,932 - root - INFO - 日志系统初始化完成，日志文件: logs/esp32_backend_20250824.log
+2025-08-24 21:46:40,932 - root - INFO - ESP32后台系统初始化完成
+2025-08-24 21:46:40,932 - root - INFO - 正在初始化系统组件...
+2025-08-24 21:46:40,943 - root - INFO - 数据库初始化成功
+2025-08-24 21:46:40,943 - root - INFO - 数据库管理器初始化完成
+2025-08-24 21:46:40,943 - root - INFO - MQTT客户端初始化完成
+2025-08-24 21:46:40,943 - root - INFO - ESP32模拟器初始化完成
+2025-08-24 21:46:40,948 - root - INFO - Web服务器初始化完成
+2025-08-24 21:46:40,976 - root - INFO - 所有系统组件初始化完成
+2025-08-24 21:46:40,976 - root - INFO - 正在启动系统组件...
+2025-08-24 21:46:40,993 - root - INFO - 正在连接到MQTT代理: localhost:1883
+2025-08-24 21:46:40,993 - root - INFO - MQTT连接成功
+2025-08-24 21:46:40,993 - root - INFO - 状态信息已发送: online
+2025-08-24 21:46:40,993 - root - INFO - 收到消息: esp32/status -> {"status": "online", "timestamp": "2025-08-24T21:46:40.993460", "client_id": "esp32_backend"}
+2025-08-24 21:46:40,996 - root - INFO - 设备状态保存成功: online
+2025-08-24 21:46:40,996 - root - INFO - 设备状态已保存: online
+2025-08-24 21:46:42,994 - root - INFO - ESP32模拟器正在连接到MQTT代理: localhost:1883
+2025-08-24 21:46:42,995 - root - INFO - ESP32模拟器MQTT连接成功
+2025-08-24 21:46:42,996 - root - INFO - ESP32模拟器开始运行
+2025-08-24 21:46:42,997 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "online", "io1_state": false, "timestamp": "2025-08-24T21:46:42.996231"}
+2025-08-24 21:46:42,999 - root - INFO - 设备状态保存成功: online
+2025-08-24 21:46:42,999 - root - INFO - 设备状态已保存: online
+2025-08-24 21:46:42,999 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2367, "unit": "ADC", "timestamp": "2025-08-24T21:46:42.996231"}
+2025-08-24 21:46:43,002 - root - INFO - AD1数据保存成功: 2367
+2025-08-24 21:46:43,002 - root - INFO - AD1数据已保存: 2367
+2025-08-24 21:46:43,002 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:46:42.996231"}
+2025-08-24 21:46:43,004 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:46:43,005 - root - INFO - 设备状态已保存: running
+2025-08-24 21:46:44,996 - root - INFO - Web服务器正在启动: 0.0.0.0:5000
+2025-08-24 21:46:45,027 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.225.1:5000
+2025-08-24 21:46:45,027 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-24 21:46:45,515 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:46:45] "GET /api/ad1/data?limit=50 HTTP/1.1" 200 -
+2025-08-24 21:46:46,997 - root - INFO - 所有系统组件启动完成
+2025-08-24 21:46:46,997 - root - INFO - ESP32后台系统启动成功！
+2025-08-24 21:46:46,998 - root - INFO - Web服务器地址: http://0.0.0.0:5000
+2025-08-24 21:46:46,998 - root - INFO - 按 Ctrl+C 停止系统
+2025-08-24 21:46:47,997 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2367, "unit": "ADC", "timestamp": "2025-08-24T21:46:47.997130"}
+2025-08-24 21:46:47,998 - root - INFO - AD1数据保存成功: 2367
+2025-08-24 21:46:47,999 - root - INFO - AD1数据已保存: 2367
+2025-08-24 21:46:47,999 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:46:47.997130"}
+2025-08-24 21:46:48,001 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:46:48,002 - root - INFO - 设备状态已保存: running
+2025-08-24 21:49:51,339 - root - INFO - 日志系统初始化完成，日志文件: logs/esp32_backend_20250824.log
+2025-08-24 21:49:51,339 - root - INFO - ESP32后台系统初始化完成
+2025-08-24 21:49:51,340 - root - INFO - 正在初始化系统组件...
+2025-08-24 21:49:51,340 - root - INFO - 数据库初始化成功
+2025-08-24 21:49:51,340 - root - INFO - 数据库管理器初始化完成
+2025-08-24 21:49:51,340 - root - INFO - MQTT客户端初始化完成
+2025-08-24 21:49:51,341 - root - INFO - ESP32模拟器初始化完成
+2025-08-24 21:49:51,343 - root - INFO - Web服务器初始化完成
+2025-08-24 21:49:51,343 - root - INFO - 所有系统组件初始化完成
+2025-08-24 21:49:51,343 - root - INFO - 正在启动系统组件...
+2025-08-24 21:49:51,348 - root - INFO - 正在连接到MQTT代理: localhost:1883
+2025-08-24 21:49:51,348 - root - INFO - MQTT连接成功
+2025-08-24 21:49:51,348 - root - INFO - 状态信息已发送: online
+2025-08-24 21:49:51,348 - root - INFO - 收到消息: esp32/status -> {"status": "online", "timestamp": "2025-08-24T21:49:51.348665", "client_id": "esp32_backend"}
+2025-08-24 21:49:51,350 - root - INFO - 设备状态保存成功: online
+2025-08-24 21:49:51,350 - root - INFO - 设备状态已保存: online
+2025-08-24 21:49:53,350 - root - INFO - ESP32模拟器正在连接到MQTT代理: localhost:1883
+2025-08-24 21:49:53,350 - root - INFO - ESP32模拟器MQTT连接成功
+2025-08-24 21:49:53,351 - root - INFO - ESP32模拟器开始运行
+2025-08-24 21:49:53,352 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "online", "io1_state": false, "timestamp": "2025-08-24T21:49:53.351222"}
+2025-08-24 21:49:53,354 - root - INFO - 设备状态保存成功: online
+2025-08-24 21:49:53,354 - root - INFO - 设备状态已保存: online
+2025-08-24 21:49:53,355 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 225, "unit": "ADC", "timestamp": "2025-08-24T21:49:53.351222"}
+2025-08-24 21:49:53,357 - root - INFO - AD1数据保存成功: 225
+2025-08-24 21:49:53,358 - root - INFO - AD1数据已保存: 225
+2025-08-24 21:49:53,358 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:49:53.351222"}
+2025-08-24 21:49:53,360 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:49:53,360 - root - INFO - 设备状态已保存: running
+2025-08-24 21:49:55,351 - root - INFO - Web服务器正在启动: 0.0.0.0:5000
+2025-08-24 21:49:55,358 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.225.1:5000
+2025-08-24 21:49:55,358 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-24 21:49:55,648 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:49:55] "GET /api/ad1/data?limit=50 HTTP/1.1" 200 -
+2025-08-24 21:49:57,351 - root - INFO - 所有系统组件启动完成
+2025-08-24 21:49:57,351 - root - INFO - ESP32后台系统启动成功！
+2025-08-24 21:49:57,352 - root - INFO - Web服务器地址: http://0.0.0.0:5000
+2025-08-24 21:49:57,352 - root - INFO - 按 Ctrl+C 停止系统
+2025-08-24 21:49:58,353 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 213, "unit": "ADC", "timestamp": "2025-08-24T21:49:58.353018"}
+2025-08-24 21:49:58,355 - root - INFO - AD1数据保存成功: 213
+2025-08-24 21:49:58,356 - root - INFO - AD1数据已保存: 213
+2025-08-24 21:49:58,357 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:49:58.353018"}
+2025-08-24 21:49:58,359 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:49:58,359 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:00,355 - root - INFO - 系统状态 - MQTT: 已连接, 模拟器: 已连接
+2025-08-24 21:50:03,251 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:03] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:03,353 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 193, "unit": "ADC", "timestamp": "2025-08-24T21:50:03.353572"}
+2025-08-24 21:50:03,358 - root - INFO - AD1数据保存成功: 193
+2025-08-24 21:50:03,358 - root - INFO - AD1数据已保存: 193
+2025-08-24 21:50:03,359 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:03.353572"}
+2025-08-24 21:50:03,363 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:03,363 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:04,196 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:04] "GET /api/io1/current HTTP/1.1" 200 -
+2025-08-24 21:50:04,456 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:04] "GET /api/io1/current HTTP/1.1" 200 -
+2025-08-24 21:50:05,149 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:05] "GET /api/ad1/data?limit=50 HTTP/1.1" 200 -
+2025-08-24 21:50:05,245 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:05] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:05,246 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:05] "GET /api/io1/current HTTP/1.1" 200 -
+2025-08-24 21:50:05,550 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:05] "GET /api/io1/current HTTP/1.1" 200 -
+2025-08-24 21:50:05,930 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:05] "GET /api/mqtt/status HTTP/1.1" 200 -
+2025-08-24 21:50:07,828 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:07] "GET /api/ad1/data?limit=50 HTTP/1.1" 200 -
+2025-08-24 21:50:08,354 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 1289, "unit": "ADC", "timestamp": "2025-08-24T21:50:08.354387"}
+2025-08-24 21:50:08,358 - root - INFO - AD1数据保存成功: 1289
+2025-08-24 21:50:08,358 - root - INFO - AD1数据已保存: 1289
+2025-08-24 21:50:08,358 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:08.354387"}
+2025-08-24 21:50:08,363 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:08,363 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:08,860 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:08] "GET /api/ad1/data?limit=100 HTTP/1.1" 200 -
+2025-08-24 21:50:10,910 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:10] "GET /api/io1/current HTTP/1.1" 200 -
+2025-08-24 21:50:13,355 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2594, "unit": "ADC", "timestamp": "2025-08-24T21:50:13.355690"}
+2025-08-24 21:50:13,359 - root - INFO - AD1数据保存成功: 2594
+2025-08-24 21:50:13,360 - root - INFO - AD1数据已保存: 2594
+2025-08-24 21:50:13,361 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:13.355690"}
+2025-08-24 21:50:13,364 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:13,364 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:15,154 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:15] "GET /api/ad1/data?limit=50 HTTP/1.1" 200 -
+2025-08-24 21:50:15,473 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:15] "GET /api/io1/control HTTP/1.1" 200 -
+2025-08-24 21:50:18,276 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:18] "GET /api/device/status?limit=20 HTTP/1.1" 200 -
+2025-08-24 21:50:18,356 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2594, "unit": "ADC", "timestamp": "2025-08-24T21:50:18.356316"}
+2025-08-24 21:50:18,358 - root - INFO - AD1数据保存成功: 2594
+2025-08-24 21:50:18,358 - root - INFO - AD1数据已保存: 2594
+2025-08-24 21:50:18,359 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:18.356316"}
+2025-08-24 21:50:18,360 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:18,361 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:20,318 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 21:50:20] "GET /api/test HTTP/1.1" 200 -
+2025-08-24 21:50:23,356 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2565, "unit": "ADC", "timestamp": "2025-08-24T21:50:23.356674"}
+2025-08-24 21:50:23,361 - root - INFO - AD1数据保存成功: 2565
+2025-08-24 21:50:23,361 - root - INFO - AD1数据已保存: 2565
+2025-08-24 21:50:23,361 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:23.356674"}
+2025-08-24 21:50:23,364 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:23,364 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:25,164 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:25] "GET /api/ad1/data?limit=50 HTTP/1.1" 200 -
+2025-08-24 21:50:27,615 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:27] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:28,357 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2565, "unit": "ADC", "timestamp": "2025-08-24T21:50:28.357472"}
+2025-08-24 21:50:28,360 - root - INFO - AD1数据保存成功: 2565
+2025-08-24 21:50:28,360 - root - INFO - AD1数据已保存: 2565
+2025-08-24 21:50:28,361 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:28.357472"}
+2025-08-24 21:50:28,364 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:28,364 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:32,620 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:32] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:33,358 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2545, "unit": "ADC", "timestamp": "2025-08-24T21:50:33.358801"}
+2025-08-24 21:50:33,362 - root - INFO - AD1数据保存成功: 2545
+2025-08-24 21:50:33,362 - root - INFO - AD1数据已保存: 2545
+2025-08-24 21:50:33,364 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:33.358801"}
+2025-08-24 21:50:33,367 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:33,367 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:37,623 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:37] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:38,359 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2528, "unit": "ADC", "timestamp": "2025-08-24T21:50:38.359561"}
+2025-08-24 21:50:38,364 - root - INFO - AD1数据保存成功: 2528
+2025-08-24 21:50:38,364 - root - INFO - AD1数据已保存: 2528
+2025-08-24 21:50:38,365 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:38.359561"}
+2025-08-24 21:50:38,368 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:38,369 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:42,626 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:42] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:43,360 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2528, "unit": "ADC", "timestamp": "2025-08-24T21:50:43.360707"}
+2025-08-24 21:50:43,363 - root - INFO - AD1数据保存成功: 2528
+2025-08-24 21:50:43,364 - root - INFO - AD1数据已保存: 2528
+2025-08-24 21:50:43,364 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:43.360707"}
+2025-08-24 21:50:43,367 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:43,368 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:47,632 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:47] "GET /api/status HTTP/1.1" 200 -
+2025-08-24 21:50:48,361 - root - INFO - ESP32模拟器统计 - 已发送数据: 12, 平均间隔: 4.58s, 当前AD值: 2531
+2025-08-24 21:50:48,361 - root - INFO - 收到消息: esp32/ad1/data -> {"device_id": "esp32_simulator", "channel": "AD1", "value": 2531, "unit": "ADC", "timestamp": "2025-08-24T21:50:48.361626"}
+2025-08-24 21:50:48,371 - root - INFO - AD1数据保存成功: 2531
+2025-08-24 21:50:48,371 - root - INFO - AD1数据已保存: 2531
+2025-08-24 21:50:48,371 - root - INFO - 收到消息: esp32/status -> {"device_id": "esp32_simulator", "status": "running", "io1_state": false, "timestamp": "2025-08-24T21:50:48.361626"}
+2025-08-24 21:50:48,374 - root - INFO - 设备状态保存成功: running
+2025-08-24 21:50:48,374 - root - INFO - 设备状态已保存: running
+2025-08-24 21:50:52,636 - werkzeug - INFO - 192.168.225.1 - - [24/Aug/2025 21:50:52] "GET /api/status HTTP/1.1" 200 -

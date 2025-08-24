@@ -1,80 +1,85 @@
 @echo off
 setlocal enabledelayedexpansion
 chcp 65001 >nul
+title MQTT Broker Installation
 echo ========================================
-echo ESP32后台系统 - MQTT代理安装脚本
+echo ESP32 Backend System - MQTT Broker Setup
 echo ========================================
 echo.
 
-echo 正在检查是否已安装Mosquitto MQTT代理...
-echo 正在检查Mosquitto安装状态...
+echo Checking if Mosquitto MQTT broker is already installed...
+echo Checking Mosquitto installation status...
 timeout /t 2 /nobreak >nul 2>&1
 
-REM 使用更快的检查方法
+REM Use faster check method
 if exist "C:\Program Files\mosquitto\mosquitto.exe" (
     set MOSQUITTO_PATH="C:\Program Files\mosquitto\mosquitto.exe"
+    echo [INFO] Found Mosquitto in Program Files
 ) else if exist "C:\Program Files (x86)\mosquitto\mosquitto.exe" (
     set MOSQUITTO_PATH="C:\Program Files (x86)\mosquitto\mosquitto.exe"
+    echo [INFO] Found Mosquitto in Program Files (x86)
 ) else (
     goto :not_installed
 )
 
-echo Mosquitto已安装，版本信息：
+echo.
+echo Mosquitto is installed. Version information:
 !MOSQUITTO_PATH! -h
 echo.
-echo 正在启动Mosquitto服务...
+
+echo Starting Mosquitto service...
 net start mosquitto >nul 2>&1
 if %errorlevel% == 0 (
-    echo [成功] Mosquitto服务已启动
+    echo [SUCCESS] Mosquitto service started successfully
 ) else (
-    echo [警告] Mosquitto服务启动失败，错误代码: %errorlevel%
+    echo [WARNING] Failed to start Mosquitto service, error code: %errorlevel%
     if %errorlevel% == 2 (
-        echo [错误] 系统找不到指定的文件 - Mosquitto服务未安装
+        echo [ERROR] System cannot find specified file - Mosquitto service not installed
         echo.
-        echo 解决方案：
-        echo 1. 重新安装Mosquitto，确保选择"Service"选项
-        echo 2. 或者手动安装服务：
-echo    - 以管理员身份打开命令提示符
-echo    - 运行: sc create mosquitto binPath= "C:\Program Files\mosquitto\mosquitto.exe -v" start= auto
-echo    - 然后运行: net start mosquitto
+        echo Solutions:
+        echo 1. Reinstall Mosquitto, make sure to select "Service" option
+        echo 2. Or manually install the service:
+        echo    - Open Command Prompt as Administrator
+        echo    - Run: sc create mosquitto binPath= "C:\Program Files\mosquitto\mosquitto.exe -v" start= auto
+        echo    - Then run: net start mosquitto
         echo.
-        echo 3. 检查服务是否已安装：
-        echo    - 按 Win+R，输入 services.msc
-        echo    - 查找是否有 "mosquitto" 服务
+        echo 3. Check if service is installed:
+        echo    - Press Win+R, type services.msc
+        echo    - Look for "mosquitto" service
     ) else if %errorlevel% == 5 (
-        echo [错误] 权限不足，请以管理员身份运行此脚本
-        echo 右键点击脚本 -> "以管理员身份运行"
+        echo [ERROR] Access denied, please run this script as Administrator
+        echo Right-click script -> "Run as Administrator"
         echo.
-        echo 或者手动启动服务：
-        echo 1. 按 Win+R，输入 services.msc
-        echo 2. 找到 "mosquitto" 服务
-        echo 3. 右键选择 "启动"
+        echo Or manually start the service:
+        echo 1. Press Win+R, type services.msc
+        echo 2. Find "mosquitto" service
+        echo 3. Right-click and select "Start"
     ) else if %errorlevel% == 1060 (
-        echo [信息] 服务未配置为自动启动，正在尝试手动启动...
+        echo [INFO] Service not configured for auto-start, trying manual start...
         sc start mosquitto >nul 2>&1
         if !errorlevel! == 0 (
-            echo [成功] MQTT服务手动启动成功
+            echo [SUCCESS] MQTT service manually started successfully
         ) else (
-            echo [错误] MQTT服务启动失败
+            echo [ERROR] Failed to start MQTT service manually
         )
     ) else (
-        echo [信息] 可能服务已在运行，正在检查状态...
+        echo [INFO] Service might already be running, checking status...
         sc query mosquitto >nul 2>&1
-        if %errorlevel% == 0 (
+        if !errorlevel! == 0 (
             sc query mosquitto | find "RUNNING" >nul 2>&1
-            if %errorlevel% == 0 (
-                echo [成功] MQTT服务已在运行
+            if !errorlevel! == 0 (
+                echo [SUCCESS] MQTT service is already running
             ) else (
-                echo [信息] MQTT服务已安装但未运行，正在尝试启动...
+                echo [INFO] MQTT service is installed but not running, trying to start...
                 sc start mosquitto >nul 2>&1
                 if !errorlevel! == 0 (
-                    echo [成功] MQTT服务启动成功
+                    echo [SUCCESS] MQTT service started successfully
                 ) else (
-                    echo [错误] MQTT服务启动失败
+                    echo [ERROR] Failed to start MQTT service
                 )
             )
         ) else (
-            echo [错误] MQTT服务未安装，请重新安装Mosquitto
+            echo [ERROR] MQTT service not installed, please reinstall Mosquitto
         )
     )
 )
@@ -82,24 +87,35 @@ goto :end
 
 :not_installed
 
-echo Mosquitto未安装，正在下载安装包...
+echo.
+echo Mosquitto is not installed. Downloading installation package...
 echo.
 
-echo 请按照以下步骤手动安装Mosquitto：
-echo 1. 访问 https://mosquitto.org/download/
-echo 2. 下载Windows版本的安装包
-echo 3. 运行安装程序，选择"Service"选项
-echo 4. 安装完成后，Mosquitto会自动作为Windows服务运行
+echo Please follow these steps to manually install Mosquitto:
+echo 1. Visit https://mosquitto.org/download/
+echo 2. Download Windows version installation package
+echo 3. Run the installer, select "Service" option
+echo 4. After installation, Mosquitto will run automatically as Windows service
 echo.
 
-echo 或者使用Chocolatey包管理器安装：
+echo Or use Chocolatey package manager:
 echo choco install mosquitto
 echo.
 
-echo 安装完成后，请重新运行此脚本
+echo After installation, please run this script again
 echo.
 
 :end
+
 echo.
-echo 按任意键退出...
+echo ========================================
+echo MQTT setup process completed
+echo ========================================
+echo.
+echo Next steps:
+echo 1. If Mosquitto is running, you can start the ESP32 backend
+echo 2. If there were errors, please fix them and run this script again
+echo 3. Run start_system.bat to start the ESP32 backend
+echo.
+echo Press any key to close this window...
 pause >nul

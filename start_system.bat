@@ -20,7 +20,8 @@ if %errorlevel% neq 0 (
     echo [错误] Python未安装或未添加到PATH
     echo 请先运行 install_dependencies.bat 安装依赖
     echo.
-    pause
+    echo 按任意键退出...
+    pause >nul
     exit /b 1
 )
 echo [成功] Python环境正常
@@ -45,7 +46,8 @@ if exist "C:\Program Files\mosquitto\mosquitto.exe" (
     set /p choice=
     if /i "!choice!" neq "y" (
         echo 系统启动已取消
-        pause
+        echo 按任意键退出...
+        pause >nul
         exit /b 1
     )
     echo 跳过MQTT检查，继续启动系统...
@@ -65,9 +67,9 @@ if %errorlevel% == 0 (
         echo 解决方案：
         echo 1. 重新安装Mosquitto，确保选择"Service"选项
         echo 2. 或者手动安装服务：
-echo    - 以管理员身份打开命令提示符
-echo    - 运行: sc create mosquitto binPath= "C:\Program Files\mosquitto\mosquitto.exe -v" start= auto
-echo    - 然后运行: net start mosquitto
+        echo    - 以管理员身份打开命令提示符
+        echo    - 运行: sc create mosquitto binPath= "C:\Program Files\mosquitto\mosquitto.exe -v" start= auto
+        echo    - 然后运行: net start mosquitto
         echo.
         echo 3. 检查服务是否已安装：
         echo    - 按 Win+R，输入 services.msc
@@ -86,9 +88,9 @@ echo    - 然后运行: net start mosquitto
     ) else (
         echo [信息] 可能服务已在运行，正在检查状态...
         sc query mosquitto >nul 2>&1
-        if %errorlevel! == 0 (
+        if !errorlevel! == 0 (
             sc query mosquitto | find "RUNNING" >nul 2>&1
-            if %errorlevel! == 0 (
+            if !errorlevel! == 0 (
                 echo [成功] MQTT服务已在运行
             ) else (
                 echo [信息] MQTT服务已安装但未运行，正在尝试启动...
@@ -114,7 +116,8 @@ if %errorlevel% neq 0 (
     echo [错误] Python依赖包未安装
     echo 请先运行 install_dependencies.bat 安装依赖
     echo.
-    pause
+    echo 按任意键退出...
+    pause >nul
     exit /b 1
 )
 echo [成功] Python依赖包已安装
@@ -124,7 +127,8 @@ echo 4. 检查配置文件...
 if not exist "config.ini" (
     echo [错误] 配置文件 config.ini 不存在
     echo.
-    pause
+    echo 按任意键退出...
+    pause >nul
     exit /b 1
 )
 echo [成功] 配置文件存在
@@ -137,8 +141,39 @@ echo 按 Ctrl+C 停止系统
 echo.
 
 echo 正在启动ESP32后台系统...
+echo.
+
+REM 启动Python程序并捕获退出代码
 python main.py
+set PYTHON_EXIT_CODE=%errorlevel%
 
 echo.
+echo ========================================
+if %PYTHON_EXIT_CODE% == 0 (
+    echo [信息] 系统正常退出
+) else if %PYTHON_EXIT_CODE% == 1 (
+    echo [错误] 系统异常退出 (错误代码: %PYTHON_EXIT_CODE%)
+    echo 可能的原因：
+    echo - 端口5000被占用
+    echo - 配置文件错误
+    echo - Python依赖包问题
+    echo - 权限不足
+) else if %PYTHON_EXIT_CODE% == 2 (
+    echo [错误] 系统启动失败 (错误代码: %PYTHON_EXIT_CODE%)
+    echo 可能的原因：
+    echo - 数据库文件损坏
+    echo - 网络配置错误
+    echo - MQTT连接失败
+) else (
+    echo [信息] 系统退出 (退出代码: %PYTHON_EXIT_CODE%)
+)
+echo ========================================
+echo.
+
 echo 系统已停止
-pause
+echo.
+echo 如需重新启动，请再次运行此脚本
+echo 如需查看详细错误信息，请检查日志文件
+echo.
+echo 按任意键关闭窗口...
+pause >nul

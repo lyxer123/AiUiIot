@@ -1,62 +1,116 @@
 @echo off
+setlocal enabledelayedexpansion
 chcp 65001 >nul
+title Python Dependencies Installation
 echo ========================================
-echo ESP32后台系统 - Python依赖安装脚本
+echo ESP32 Backend System - Python Dependencies
 echo ========================================
 echo.
 
-echo 正在检查Python环境...
+echo Checking Python environment...
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Python未安装或未添加到PATH环境变量
-    echo 请先安装Python 3.7+版本
-    echo 下载地址: https://www.python.org/downloads/
+    echo [ERROR] Python is not installed or not in PATH
+    echo Please install Python 3.7+ first
+    echo Download: https://www.python.org/downloads/
     echo.
-    pause
+    echo Press any key to exit...
+    pause >nul
     exit /b 1
 )
 
-echo Python环境检查通过
+echo [SUCCESS] Python environment check passed
 python --version
 echo.
 
-echo 正在检查pip...
+echo Checking pip...
 pip --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo pip未安装，正在尝试安装...
+    echo [WARNING] pip not found, trying to install...
     python -m ensurepip --upgrade
+    if %errorlevel% neq 0 (
+        echo [ERROR] Failed to install pip
+        echo Please install pip manually
+        echo.
+        echo Press any key to exit...
+        pause >nul
+        exit /b 1
+    )
 )
 
-echo 正在安装Python依赖包...
+echo [SUCCESS] pip is available
 echo.
 
-echo 安装paho-mqtt...
+echo Installing Python dependencies...
+echo.
+
+echo Installing paho-mqtt...
 pip install paho-mqtt==1.6.1
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to install paho-mqtt
+    echo.
+    echo Press any key to exit...
+    pause >nul
+    exit /b 1
+)
 
-echo 安装Flask...
+echo Installing Flask...
 pip install flask==2.3.3
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to install Flask
+    echo.
+    echo Press any key to exit...
+    pause >nul
+    exit /b 1
+)
 
-echo 安装Flask-CORS...
+echo Installing Flask-CORS...
 pip install flask-cors==4.0.0
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to install Flask-CORS
+    echo.
+    echo Press any key to exit...
+    pause >nul
+    exit /b 1
+)
 
-echo 安装schedule...
+echo Installing schedule...
 pip install schedule==1.2.0
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to install schedule
+    echo.
+    echo Press any key to exit...
+    pause >nul
+    exit /b 1
+)
 
 echo.
-echo 所有依赖包安装完成！
+echo [SUCCESS] All dependencies installed!
 echo.
 
-echo 正在验证安装...
-python -c "import paho.mqtt.client; import flask; import flask_cors; import schedule; print('所有模块导入成功！')"
+echo Verifying installation...
+python -c "import paho.mqtt.client; import flask; import flask_cors; import schedule; print('All modules imported successfully!')"
 
 if %errorlevel% == 0 (
     echo.
-    echo 依赖安装验证成功！
+    echo [SUCCESS] Dependencies verification passed!
+    echo.
+    echo You can now run start_system.bat to start the ESP32 backend
 ) else (
     echo.
-    echo 依赖安装验证失败，请检查错误信息
+    echo [ERROR] Dependencies verification failed
+    echo Please check the error messages above
+    echo.
+    echo Common solutions:
+    echo 1. Try running as Administrator
+    echo 2. Check internet connection
+    echo 3. Update pip: python -m pip install --upgrade pip
 )
 
 echo.
-echo 按任意键退出...
+echo ========================================
+echo Installation process completed
+echo ========================================
+echo.
+echo Press any key to close this window...
 pause >nul
