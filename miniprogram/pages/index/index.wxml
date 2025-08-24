@@ -108,3 +108,4 @@
     <button class="btn btn-primary" bindtap="retry">重试</button>
   </view>
 </view>
+

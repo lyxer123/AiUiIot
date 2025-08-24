@@ -21,6 +21,18 @@
     <color name="design_default_color_surface">#FFFFFFFF</color>
     <color name="design_default_color_on_surface">#FF000000</color>
     
+    <!-- Holo 颜色资源 -->
+    <color name="holo_blue_dark">#FF1976D2</color>
+    <color name="holo_blue_light">#FF42A5F5</color>
+    <color name="holo_green_dark">#FF388E3C</color>
+    <color name="holo_green_light">#FF66BB6A</color>
+    <color name="holo_red_dark">#FFD32F2F</color>
+    <color name="holo_red_light">#FFEF5350</color>
+    <color name="holo_orange_dark">#FFF57C00</color>
+    <color name="holo_orange_light">#FFFFB74D</color>
+    <color name="holo_purple_dark">#FF7B1FA2</color>
+    <color name="holo_purple_light">#FFBA68C8</color>
+    
     <!-- 自定义颜色 -->
     <color name="primary_color">#FF6200EE</color>
     <color name="secondary_color">#FF03DAC5</color>

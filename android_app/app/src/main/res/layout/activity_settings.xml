@@ -5,27 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/white">
+    android:background="#F5F5F5">
 
-    <!-- 标题 -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="系统设置"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/black" />
-
-    <!-- 设置卡片 -->
+    <!-- 配置信息卡片 -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/settings_card"
+        android:id="@+id/config_info_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,37 +24,79 @@
             android:padding="16dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="服务器配置"
+                android:text="配置信息"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
+                android:textColor="@color/primary_color"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_config_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="配置摘要信息"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- 服务器设置卡片 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/settings_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服务器设置"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:layout_marginBottom="16dp"/>
 
             <TextView
                 android:id="@+id/tv_current_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="当前服务器: "
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp" />
+                android:text="当前服务器: http://192.168.1.100:5000/api"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background"
+                android:padding="12dp"/>
 
             <EditText
                 android:id="@+id/et_server_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="输入服务器地址 (例如: http://192.168.1.100:5000/api)"
-                android:inputType="textUri"
-                android:layout_marginBottom="16dp"
+                android:hint="输入服务器地址 (如: http://192.168.1.100:5000/api)"
+                android:textSize="14sp"
                 android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background"
+                android:inputType="textUri"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginBottom="16dp">
 
                 <Button
                     android:id="@+id/btn_save"
@@ -72,29 +104,34 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="保存设置"
-                    android:layout_marginEnd="8dp"
-                    android:backgroundTint="@color/design_default_color_primary" />
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary_color"
+                    android:layout_marginEnd="8dp"/>
 
                 <Button
                     android:id="@+id/btn_reset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="重置设置"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/design_default_color_error" />
+                    android:text="重置默认"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/warning_color"
+                    android:layout_marginStart="8dp"/>
 
             </LinearLayout>
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
-    <!-- 状态卡片 -->
+    <!-- 连接状态卡片 -->
     <androidx.cardview.widget.CardView
         android:id="@+id/status_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -103,13 +140,13 @@
             android:padding="16dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="连接状态"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
+                android:textColor="@color/primary_color"
+                android:layout_marginBottom="16dp"/>
 
             <TextView
                 android:id="@+id/tv_connection_status"
@@ -117,17 +154,21 @@
                 android:layout_height="wrap_content"
                 android:text="连接状态: 未知"
                 android:textSize="16sp"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
+                android:textColor="@color/holo_blue_dark"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background"
+                android:padding="12dp"/>
 
             <Button
                 android:id="@+id/btn_test_connection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="测试连接"
-                android:backgroundTint="@color/design_default_color_secondary" />
+                android:textColor="@color/white"
+                android:backgroundTint="@color/secondary_color"/>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

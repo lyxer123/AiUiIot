@@ -1,7 +1,6 @@
 package com.example.aiiot;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.aiiot.config.AppConfig;
 import com.example.aiiot.database.UserDatabaseHelper;
 import com.example.aiiot.model.User;
 
@@ -21,26 +21,22 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvStatus, tvCurrentUser;
     private CardView loginCard, mainCard;
     
-    private SharedPreferences sharedPreferences;
+    private AppConfig appConfig;
     private UserDatabaseHelper userDbHelper;
-    private static final String PREF_NAME = "ESP32Control";
-    private static final String KEY_USERNAME = "username";
-    private static final String KEY_USER_ID = "user_id";
-    private static final String KEY_IS_LOGGED_IN = "is_logged_in";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        // 初始化配置管理器
+        appConfig = AppConfig.getInstance(this);
+        
         // 初始化数据库
         userDbHelper = new UserDatabaseHelper(this);
         
         // 初始化视图
         initViews();
-        
-        // 初始化SharedPreferences
-        sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         
         // 检查登录状态
         checkLoginStatus();
@@ -63,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void checkLoginStatus() {
-        boolean isLoggedIn = sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false);
+        boolean isLoggedIn = appConfig.isLoggedIn();
         if (isLoggedIn) {
             showMainInterface();
         } else {
@@ -103,18 +99,18 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         
-        // 验证用户凭据
+        // 验证用户
         User user = userDbHelper.validateUser(username, password);
         if (user != null) {
             // 保存登录状态
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString(KEY_USERNAME, username);
-            editor.putInt(KEY_USER_ID, user.getId());
-            editor.putBoolean(KEY_IS_LOGGED_IN, true);
-            editor.apply();
+            boolean success = appConfig.saveUserInfo(username, user.getId());
             
-            showMainInterface();
-            Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+            if (success) {
+                showMainInterface();
+                Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "登录状态保存失败", Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
         }
@@ -157,13 +153,15 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void performLogout() {
-        // 清除登录状态
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
+        // 使用配置管理器清除用户登录信息（保留服务器配置）
+        boolean success = appConfig.clearUserInfo();
         
-        showLoginInterface();
-        Toast.makeText(this, "已退出登录", Toast.LENGTH_SHORT).show();
+        if (success) {
+            showLoginInterface();
+            Toast.makeText(this, "已退出登录", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "退出登录失败，请重试", Toast.LENGTH_SHORT).show();
+        }
     }
     
     private void showLoginInterface() {
@@ -176,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         loginCard.setVisibility(View.GONE);
         mainCard.setVisibility(View.VISIBLE);
         
-        String username = sharedPreferences.getString(KEY_USERNAME, "");
+        String username = appConfig.getUsername();
         tvCurrentUser.setText("当前用户: " + username);
         tvStatus.setText("登录成功，请选择功能");
     }

@@ -1,10 +1,9 @@
 package com.example.aiiot.network;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.example.aiiot.config.AppConfig;
 import com.example.aiiot.model.ESP32Data;
 
 import org.json.JSONArray;
@@ -34,14 +33,14 @@ public class NetworkManager {
     private OkHttpClient client;
     private String baseUrl;
     private Context context;
-    private SharedPreferences prefs;
+    private AppConfig appConfig;
     
     // 时间格式解析器
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
     
     public NetworkManager(Context context) {
         this.context = context;
-        this.prefs = context.getSharedPreferences("ESP32Control", Context.MODE_PRIVATE);
+        this.appConfig = AppConfig.getInstance(context);
         
         // 初始化OkHttpClient
         client = new OkHttpClient.Builder()
@@ -50,19 +49,37 @@ public class NetworkManager {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .build();
         
-        // 获取服务器地址
-        this.baseUrl = prefs.getString("server_url", "http://192.168.1.100:5000/api");
+        // 从配置管理器获取保存的服务器地址
+        this.baseUrl = appConfig.getServerUrl();
+        
+        // 记录日志
+        Log.d(TAG, "NetworkManager初始化完成，服务器地址: " + this.baseUrl);
     }
     
     public void setServerUrl(String url) {
         this.baseUrl = url;
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("server_url", url);
-        editor.apply();
+        
+        // 使用配置管理器保存服务器地址
+        boolean success = appConfig.saveServerUrl(url);
+        
+        if (success) {
+            Log.d(TAG, "服务器地址已保存: " + url);
+        } else {
+            Log.e(TAG, "服务器地址保存失败: " + url);
+        }
     }
     
     public String getServerUrl() {
-        return baseUrl;
+        // 每次获取时都从配置管理器读取最新值
+        String savedUrl = appConfig.getServerUrl();
+        
+        // 如果保存的值与当前值不同，更新当前值
+        if (!savedUrl.equals(this.baseUrl)) {
+            this.baseUrl = savedUrl;
+            Log.d(TAG, "从配置管理器更新服务器地址: " + savedUrl);
+        }
+        
+        return this.baseUrl;
     }
     
     // 测试连接
