@@ -14,10 +14,14 @@ class WebServer:
         self.app = Flask(__name__)
         CORS(self.app)  # 启用跨域支持
         
-        # 配置
+        # 配置 - 使用动态IP配置
         self.host = self.config.get('WEB_SERVER', 'host')
         self.port = self.config.getint('WEB_SERVER', 'port')
         self.debug = self.config.getboolean('WEB_SERVER', 'debug')
+        
+        # 如果host是0.0.0.0，则绑定所有接口
+        if self.host == '0.0.0.0':
+            self.host = '0.0.0.0'  # 保持0.0.0.0以绑定所有接口
         
         # 依赖组件
         self.database_manager = database_manager
@@ -162,7 +166,19 @@ class WebServer:
     def start(self):
         """启动Web服务器"""
         try:
-            logging.info(f"Web服务器正在启动: {self.host}:{self.port}")
+            # 获取本机IP地址用于显示
+            import socket
+            try:
+                local_ip = socket.gethostbyname(socket.gethostname())
+                if local_ip and local_ip != '127.0.0.1':
+                    logging.info(f"Web服务器正在启动: {self.host}:{self.port}")
+                    logging.info(f"外部访问地址: http://{local_ip}:{self.port}")
+                    logging.info(f"本地访问地址: http://localhost:{self.port}")
+                else:
+                    logging.info(f"Web服务器正在启动: {self.host}:{self.port}")
+            except:
+                logging.info(f"Web服务器正在启动: {self.host}:{self.port}")
+            
             # 在非主线程中运行Flask时，使用更兼容的配置
             self.app.run(
                 host=self.host, 

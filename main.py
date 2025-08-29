@@ -20,11 +20,20 @@ from database import DatabaseManager
 from mqtt_client import MQTTClient
 from esp32_simulator import ESP32Simulator  # ESP32模拟器已重新启用
 from web_server import WebServer
+from ip_config import IPConfigManager  # 导入动态IP配置管理器
 
 class ESP32BackendSystem:
     def __init__(self, config_file="config.ini"):
         """初始化ESP32后台系统"""
         self.config_file = config_file
+        
+        # 初始化IP配置管理器
+        self.ip_manager = IPConfigManager(config_file)
+        
+        # 动态更新IP配置
+        self.update_ip_config()
+        
+        # 重新加载配置
         self.config = configparser.ConfigParser()
         self.config.read(config_file)
         
@@ -46,6 +55,27 @@ class ESP32BackendSystem:
         signal.signal(signal.SIGTERM, self.signal_handler)
         
         logging.info("ESP32后台系统初始化完成")
+    
+    def update_ip_config(self):
+        """动态更新IP配置"""
+        try:
+            logging.info("正在更新IP配置...")
+            
+            # 更新主配置文件
+            new_ip = self.ip_manager.update_config_with_dynamic_ip(force_update=True)
+            
+            # 更新ESP32配置文件
+            esp32_updated = self.ip_manager.update_esp32_config()
+            
+            # 更新微信小程序配置文件
+            miniprogram_updated = self.ip_manager.update_miniprogram_config()
+            
+            logging.info(f"IP配置更新完成 - 主要IP: {new_ip}")
+            logging.info(f"ESP32配置: {'已更新' if esp32_updated else '无需更新'}")
+            logging.info(f"微信小程序配置: {'已更新' if miniprogram_updated else '无需更新'}")
+            
+        except Exception as e:
+            logging.error(f"IP配置更新失败: {e}")
     
     def setup_logging(self):
         """设置日志配置"""
@@ -177,7 +207,12 @@ class ESP32BackendSystem:
             
             self.running = True
             logging.info("ESP32后台系统启动成功！")
-            logging.info(f"Web服务器地址: http://{self.config.get('WEB_SERVER', 'host')}:{self.config.get('WEB_SERVER', 'port')}")
+            
+            # 获取当前IP配置
+            current_ip = self.ip_manager.get_primary_ip()
+            web_port = self.config.get('WEB_SERVER', 'port')
+            logging.info(f"Web服务器地址: http://{current_ip}:{web_port}")
+            logging.info(f"本地访问: http://localhost:{web_port}")
             logging.info("按 Ctrl+C 停止系统")
             
             # 主循环

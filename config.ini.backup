@@ -1,5 +1,5 @@
 [MQTT]
-broker = 192.168.124.1
+broker = 10.1.95.252
 port = 1883
 client_id = esp32_backend
 username = 

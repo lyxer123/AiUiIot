@@ -132,11 +132,26 @@ class MQTTClient:
     def connect(self):
         """连接到MQTT代理"""
         try:
+            logging.info(f"正在连接到MQTT代理: {self.broker}:{self.port}")
             self.client.connect(self.broker, self.port, self.keepalive)
             self.client.loop_start()
-            logging.info(f"正在连接到MQTT代理: {self.broker}:{self.port}")
+            
+            # 等待连接建立（最多等待5秒）
+            import time
+            timeout = 5
+            start_time = time.time()
+            while not self.client.is_connected() and (time.time() - start_time) < timeout:
+                time.sleep(0.1)
+            
+            if self.client.is_connected():
+                logging.info("MQTT连接成功")
+                self.connected = True
+            else:
+                logging.warning("MQTT连接超时")
+                
         except Exception as e:
             logging.error(f"MQTT连接失败: {e}")
+            self.connected = False
     
     def disconnect(self):
         """断开MQTT连接"""
@@ -201,7 +216,12 @@ class MQTTClient:
     
     def get_connection_status(self):
         """获取连接状态"""
-        return self.connected
+        # 使用paho-mqtt库的实时连接状态检查
+        try:
+            return self.client.is_connected()
+        except Exception as e:
+            logging.warning(f"检查MQTT连接状态失败: {e}")
+            return self.connected  # 回退到标志位
     
     def get_current_io1_state(self):
         """获取当前IO1状态"""

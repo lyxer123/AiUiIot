@@ -1,10 +1,4 @@
 paho-mqtt==1.6.1
 flask==2.3.3
 flask-cors==4.0.0
-sqlite3
-datetime
-json
-threading
-logging
-configparser
 schedule==1.2.0

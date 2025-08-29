@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32后台系统 - Web测试页面</title>
+    <title>ESP32后台系统 - Web测试页面 (改进版)</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
@@ -59,6 +59,13 @@
         .button.success:hover {
             background: #218838;
         }
+        .button.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .button.warning:hover {
+            background: #e0a800;
+        }
         .status {
             padding: 10px;
             margin: 10px 0;
@@ -80,6 +87,11 @@
             color: #0c5460;
             border: 1px solid #bee5eb;
         }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
         .data-display {
             background: #f8f9fa;
             padding: 15px;
@@ -87,10 +99,13 @@
             margin: 10px 0;
             max-height: 300px;
             overflow-y: auto;
+            border: 1px solid #dee2e6;
         }
         .data-item {
-            padding: 5px;
+            padding: 8px;
             border-bottom: 1px solid #dee2e6;
+            font-family: monospace;
+            font-size: 12px;
         }
         .data-item:last-child {
             border-bottom: none;
@@ -100,24 +115,78 @@
         }
         .form-group label {
             display: inline-block;
-            width: 100px;
+            width: 120px;
             font-weight: bold;
         }
         .form-group input, .form-group select {
-            padding: 5px;
+            padding: 8px;
             border: 1px solid #ddd;
             border-radius: 3px;
             width: 200px;
+        }
+        .config-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+        .connection-status {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .connection-status.connected {
+            background: #28a745;
+        }
+        .connection-status.disconnected {
+            background: #dc3545;
+        }
+        .connection-status.unknown {
+            background: #ffc107;
+        }
+        .auto-refresh {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .timestamp {
+            color: #6c757d;
+            font-size: 12px;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ESP32后台系统 - Web测试页面</h1>
+        <h1>ESP32后台系统 - Web测试页面 (改进版)</h1>
         
-        <!-- 系统状态 -->
+        <!-- 配置设置 -->
+        <div class="config-section">
+            <h3>🔧 系统配置</h3>
+            <div class="form-group">
+                <label>服务器地址:</label>
+                <input type="text" id="serverAddress" value="10.1.95.252" placeholder="输入服务器IP地址">
+            </div>
+            <div class="form-group">
+                <label>端口号:</label>
+                <input type="number" id="serverPort" value="5000" min="1" max="65535">
+            </div>
+            <button class="button warning" onclick="updateAPIConfig()">更新配置</button>
+            <button class="button" onclick="testConnection()">测试连接</button>
+            <div id="configStatus"></div>
+        </div>
+        
+        <!-- 连接状态 -->
         <div class="section">
-            <h3>系统状态</h3>
+            <h3>📡 连接状态</h3>
+            <div class="auto-refresh">
+                <label><input type="checkbox" id="autoRefresh" checked> 自动刷新状态 (每5秒)</label>
+                <span class="timestamp">最后更新: <span id="lastUpdate">-</span></span>
+            </div>
             <button class="button" onclick="getSystemStatus()">获取系统状态</button>
             <button class="button" onclick="getMQTTStatus()">获取MQTT状态</button>
             <div id="systemStatus"></div>
@@ -125,7 +194,7 @@
         
         <!-- AD1数据 -->
         <div class="section">
-            <h3>AD1数据采集</h3>
+            <h3>📊 AD1数据采集</h3>
             <div class="form-group">
                 <label>数据条数:</label>
                 <input type="number" id="ad1Limit" value="50" min="1" max="1000">
@@ -137,7 +206,7 @@
         
         <!-- IO1控制 -->
         <div class="section">
-            <h3>IO1开关控制</h3>
+            <h3>🎛️ IO1开关控制</h3>
             <button class="button" onclick="getCurrentIO1State()">获取当前状态</button>
             <button class="button" onclick="getIO1History()">获取控制历史</button>
             <div class="form-group">
@@ -154,7 +223,7 @@
         
         <!-- 设备状态 -->
         <div class="section">
-            <h3>设备状态</h3>
+            <h3>📱 设备状态</h3>
             <div class="form-group">
                 <label>状态条数:</label>
                 <input type="number" id="statusLimit" value="20" min="1" max="100">
@@ -165,22 +234,147 @@
         
         <!-- API测试 -->
         <div class="section">
-            <h3>API接口测试</h3>
+            <h3>🧪 API接口测试</h3>
             <button class="button" onclick="testAPI()">测试API接口</button>
+            <button class="button warning" onclick="testMQTTAPI()">测试MQTT API</button>
             <div id="apiTest"></div>
         </div>
     </div>
 
     <script>
-        const API_BASE = 'http://10.1.95.252:5000/api';
+        let API_BASE = 'http://10.1.95.252:5000/api';
+        let autoRefreshInterval = null;
         
-        // 页面加载完成后自动获取IO1状态
+        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            // 延迟1秒后自动获取状态，确保后端服务已启动
+            initializePage();
+        });
+        
+        // 初始化页面
+        function initializePage() {
+            // 从localStorage加载配置
+            loadConfig();
+            
+            // 设置自动刷新
+            setupAutoRefresh();
+            
+            // 延迟获取初始状态
             setTimeout(() => {
+                getSystemStatus();
                 getCurrentIO1State();
             }, 1000);
-        });
+        }
+        
+        // 加载配置
+        function loadConfig() {
+            const savedAddress = localStorage.getItem('serverAddress');
+            const savedPort = localStorage.getItem('serverPort');
+            
+            if (savedAddress) document.getElementById('serverAddress').value = savedAddress;
+            if (savedPort) document.getElementById('serverPort').value = savedPort;
+            
+            updateAPIConfig();
+        }
+        
+        // 更新API配置
+        function updateAPIConfig() {
+            const address = document.getElementById('serverAddress').value.trim();
+            const port = document.getElementById('serverPort').value.trim();
+            
+            if (address && port) {
+                API_BASE = `http://${address}:${port}/api`;
+                
+                // 保存到localStorage
+                localStorage.setItem('serverAddress', address);
+                localStorage.setItem('serverPort', port);
+                
+                showStatus('configStatus', `API地址已更新: ${API_BASE}`, 'success');
+                
+                // 测试连接
+                setTimeout(() => testConnection(), 500);
+            } else {
+                showStatus('configStatus', '请输入有效的服务器地址和端口', 'error');
+            }
+        }
+        
+        // 测试连接
+        async function testConnection() {
+            try {
+                showStatus('configStatus', '正在测试连接...', 'info');
+                
+                const response = await fetch(`${API_BASE}/test`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    timeout: 5000
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        showStatus('configStatus', `连接成功! ${result.message}`, 'success');
+                    } else {
+                        showStatus('configStatus', `连接失败: ${result.error}`, 'error');
+                    }
+                } else {
+                    showStatus('configStatus', `HTTP错误: ${response.status} ${response.statusText}`, 'error');
+                }
+            } catch (error) {
+                let errorMsg = '连接失败';
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    errorMsg = '无法连接到服务器，请检查：1) 服务器是否启动 2) 地址和端口是否正确 3) 防火墙设置';
+                } else if (error.name === 'AbortError') {
+                    errorMsg = '连接超时';
+                } else {
+                    errorMsg = error.message;
+                }
+                showStatus('configStatus', errorMsg, 'error');
+            }
+        }
+        
+        // 设置自动刷新
+        function setupAutoRefresh() {
+            const checkbox = document.getElementById('autoRefresh');
+            
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    startAutoRefresh();
+                } else {
+                    stopAutoRefresh();
+                }
+            });
+            
+            if (checkbox.checked) {
+                startAutoRefresh();
+            }
+        }
+        
+        // 开始自动刷新
+        function startAutoRefresh() {
+            if (autoRefreshInterval) {
+                clearInterval(autoRefreshInterval);
+            }
+            
+            autoRefreshInterval = setInterval(() => {
+                getSystemStatus();
+                getMQTTStatus(); // 添加MQTT状态刷新
+                getCurrentIO1State();
+                updateTimestamp();
+            }, 5000);
+        }
+        
+        // 停止自动刷新
+        function stopAutoRefresh() {
+            if (autoRefreshInterval) {
+                clearInterval(autoRefreshInterval);
+                autoRefreshInterval = null;
+            }
+        }
+        
+        // 更新时间戳
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+        }
         
         // 显示状态信息
         function showStatus(elementId, message, type = 'info') {
@@ -196,6 +390,11 @@
             }
             
             if (Array.isArray(data)) {
+                if (data.length === 0) {
+                    element.innerHTML += `<div class="status info">暂无数据</div>`;
+                    return;
+                }
+                
                 const dataHtml = data.map(item => {
                     if (typeof item === 'object') {
                         return `<div class="data-item">${JSON.stringify(item, null, 2)}</div>`;
@@ -216,11 +415,35 @@
                 const result = await response.json();
                 
                 if (result.success) {
-                    showData('systemStatus', result.data, '系统状态');
+                    const status = result.data;
+                    console.log('系统状态API响应:', status);
+                    console.log('MQTT连接状态:', status.mqtt_connected);
+                    
+                    const html = `
+                        <div class="status success">
+                            <div><strong>系统状态:</strong> ${status.system_status}</div>
+                            <div><strong>MQTT连接:</strong> <span class="connection-status ${status.mqtt_connected ? 'connected' : 'disconnected'}"></span>${status.mqtt_connected ? '已连接' : '未连接'}</div>
+                            <div><strong>IO1当前状态:</strong> ${status.io1_current_state ? '开启' : '关闭'}</div>
+                        </div>
+                    `;
+                    document.getElementById('systemStatus').innerHTML = html;
+                    
+                    // 更新最后更新时间
+                    const now = new Date();
+                    document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+                    
+                    // 如果MQTT状态为true，显示成功消息
+                    if (status.mqtt_connected) {
+                        console.log('✅ MQTT状态显示为已连接');
+                    } else {
+                        console.log('❌ MQTT状态显示为未连接');
+                    }
                 } else {
+                    console.error('系统状态API失败:', result.error);
                     showStatus('systemStatus', `获取失败: ${result.error}`, 'error');
                 }
             } catch (error) {
+                console.error('获取系统状态错误:', error);
                 showStatus('systemStatus', `请求错误: ${error.message}`, 'error');
             }
         }
@@ -236,13 +459,20 @@
                     const status = isConnected ? '已连接' : '未连接';
                     const type = isConnected ? 'success' : 'error';
                     
-                    // 显示MQTT状态
-                    showStatus('systemStatus', `MQTT状态: ${status}`, type);
-                    
-                    // 添加调试信息
                     console.log(`MQTT状态更新: ${status} (API返回: ${isConnected})`);
-                    console.log('MQTT状态API响应:', result.data);
+                    console.log('MQTT状态API完整响应:', result);
+                    
+                    // 强制刷新系统状态显示
+                    await getSystemStatus();
+                    
+                    // 如果系统状态中没有MQTT信息，单独显示MQTT状态
+                    const systemStatusElement = document.getElementById('systemStatus');
+                    if (!systemStatusElement.innerHTML.includes('MQTT连接:')) {
+                        showStatus('systemStatus', `MQTT状态: ${status}`, type);
+                    }
+                    
                 } else {
+                    console.error('MQTT状态API失败:', result.error);
                     showStatus('systemStatus', `获取MQTT状态失败: ${result.error}`, 'error');
                 }
             } catch (error) {
@@ -276,7 +506,8 @@
                 
                 if (result.success) {
                     const state = result.data.state ? '开启' : '关闭';
-                    showStatus('io1Control', `当前IO1状态: ${state}`, result.data.state ? 'success' : 'info');
+                    const type = result.data.state ? 'success' : 'info';
+                    showStatus('io1Control', `当前IO1状态: ${state}`, type);
                     
                     // 同步更新控制状态下拉框
                     updateIO1StateDropdown(result.data.state);
@@ -313,6 +544,8 @@
         // 设置IO1控制
         async function setIO1Control(state) {
             try {
+                showStatus('io1Control', '正在发送控制命令...', 'info');
+                
                 const response = await fetch(`${API_BASE}/io1/control`, {
                     method: 'POST',
                     headers: {
@@ -371,14 +604,45 @@
             }
         }
         
-        // 页面加载完成后自动获取系统状态
-        window.onload = function() {
-            getSystemStatus();
-            // 延迟获取IO1状态，确保后端服务已启动
-            setTimeout(() => {
-                getCurrentIO1State();
-            }, 2000);
-        };
+        // 测试MQTT状态API
+        async function testMQTTAPI() {
+            try {
+                console.log('🧪 开始测试MQTT状态API...');
+                
+                // 测试MQTT状态API
+                const mqttResponse = await fetch(`${API_BASE}/mqtt/status`);
+                const mqttResult = await mqttResponse.json();
+                console.log('MQTT状态API响应:', mqttResult);
+                
+                // 测试系统状态API
+                const statusResponse = await fetch(`${API_BASE}/status`);
+                const statusResult = await statusResponse.json();
+                console.log('系统状态API响应:', statusResult);
+                
+                // 显示测试结果
+                let testResult = '<div class="status info"><h4>MQTT API测试结果</h4>';
+                testResult += `<div>MQTT状态API: ${mqttResult.success ? '成功' : '失败'}</div>`;
+                if (mqttResult.success) {
+                    testResult += `<div>MQTT连接状态: ${mqttResult.data.connected ? '已连接' : '未连接'}</div>`;
+                }
+                testResult += `<div>系统状态API: ${statusResult.success ? '成功' : '失败'}</div>`;
+                if (statusResult.success) {
+                    testResult += `<div>系统MQTT状态: ${statusResult.data.mqtt_connected ? '已连接' : '未连接'}</div>`;
+                }
+                testResult += '</div>';
+                
+                document.getElementById('apiTest').innerHTML = testResult;
+                
+            } catch (error) {
+                console.error('MQTT API测试失败:', error);
+                showStatus('apiTest', `MQTT API测试失败: ${error.message}`, 'error');
+            }
+        }
+        
+        // 页面卸载时清理定时器
+        window.addEventListener('beforeunload', function() {
+            stopAutoRefresh();
+        });
     </script>
 </body>
 </html>

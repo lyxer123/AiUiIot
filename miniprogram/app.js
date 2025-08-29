@@ -2,9 +2,9 @@
 App({
   globalData: {
     userInfo: null,
-    // 服务器配置 - 需要根据实际网络环境修改
+    // 服务器配置 - 将自动检测服务器IP
     serverConfig: {
-      baseUrl: 'http://10.1.95.252:5000/api', // 修改为你的服务器IP
+      baseUrl: 'http://AUTO_DETECT:5000/api', // 将自动检测服务器IP
       timeout: 10000
     }
   },
