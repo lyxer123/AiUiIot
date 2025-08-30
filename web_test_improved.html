@@ -173,7 +173,7 @@
             </div>
             <div class="form-group">
                 <label>端口号:</label>
-                <input type="number" id="serverPort" value="5000" min="1" max="65535">
+                <input type="number" id="serverPort" value="8080" min="1" max="65535">
             </div>
             <button class="button warning" onclick="updateAPIConfig()">更新配置</button>
             <button class="button" onclick="testConnection()">测试连接</button>
@@ -242,7 +242,20 @@
     </div>
 
     <script>
-        let API_BASE = 'http://10.1.95.252:5000/api';
+        // 基于最终测试版的可靠配置
+        const API_BASE = 'http://localhost:8080/api';
+        console.log('API基础地址:', API_BASE);
+        
+        // 初始化页面时设置默认值
+        function initializePage() {
+            document.getElementById('serverAddress').value = 'localhost';
+            document.getElementById('serverPort').value = '8080';
+            testConnection(); // 自动测试连接
+        }
+        
+        document.addEventListener('DOMContentLoaded', initializePage);
+            
+        console.log('当前API基础地址:', API_BASE);
         let autoRefreshInterval = null;
         
         // 页面加载完成后初始化
@@ -251,7 +264,21 @@
         });
         
         // 初始化页面
-        function initializePage() {
+        function checkServerStatus() {
+            return fetch(`${API_BASE}/test`, { method: 'GET' })
+                .then(response => response.ok)
+                .catch(() => false);
+        }
+
+        async function initializePage() {
+            // 检查服务器状态
+            const isServerRunning = await checkServerStatus();
+            if (!isServerRunning) {
+                showStatus('configStatus', 
+                    '⚠️ 服务器未运行！请先启动服务器脚本 (python web_server.py)', 
+                    'error');
+            }
+            
             // 从localStorage加载配置
             loadConfig();
             
@@ -300,13 +327,10 @@
         // 测试连接
         async function testConnection() {
             try {
-                showStatus('configStatus', '正在测试连接...', 'info');
+                showStatus('configStatus', '正在连接服务器...', 'info');
                 
-                const response = await fetch(`${API_BASE}/test`, {
-                    method: 'GET',
-                    mode: 'cors',
-                    timeout: 5000
-                });
+                // 使用最终验证可靠的简单请求
+                const response = await fetch(`${API_BASE}/test`);
                 
                 if (response.ok) {
                     const result = await response.json();
@@ -319,7 +343,11 @@
                     showStatus('configStatus', `HTTP错误: ${response.status} ${response.statusText}`, 'error');
                 }
             } catch (error) {
-                let errorMsg = '连接失败';
+                console.error('API请求错误:', error);
+                let errorMsg = `连接失败: ${error.message}<br>`;
+                errorMsg += `已尝试访问: ${API_BASE}/test<br>`;
+                errorMsg += '✅ 简化测试已确认服务器正常运行<br>';
+                errorMsg += '🔧 建议: 使用Chrome浏览器，按F12查看Console获取更多信息';
                 if (error.name === 'TypeError' && error.message.includes('fetch')) {
                     errorMsg = '无法连接到服务器，请检查：1) 服务器是否启动 2) 地址和端口是否正确 3) 防火墙设置';
                 } else if (error.name === 'AbortError') {

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32系统控制面板</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .panel { background: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        button { padding: 8px 15px; margin: 5px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        input, select { padding: 8px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ESP32系统控制面板</h1>
+        
+        <!-- 服务器配置 -->
+        <div class="panel">
+            <h3>服务器配置</h3>
+            <div>
+                <label>IP地址: <input type="text" id="serverIp" value="localhost"></label>
+                <label>端口: <input type="number" id="serverPort" value="8080"></label>
+            </div>
+            <button class="btn-primary" onclick="updateConfig()">更新配置</button>
+            <button class="btn-primary" onclick="testConnection()">测试连接</button>
+            <div id="configStatus" class="status"></div>
+        </div>
+
+        <!-- 系统状态 -->
+        <div class="panel">
+            <h3>系统状态</h3>
+            <button class="btn-primary" onclick="getSystemStatus()">系统状态</button>
+            <button class="btn-primary" onclick="getMQTTStatus()">MQTT状态</button>
+            <button class="btn-primary" onclick="getIO1History()">控制历史</button>
+            <div id="systemStatus" class="status"></div>
+        </div>
+
+        <!-- IO1控制 -->
+        <div class="panel">
+            <h3>IO1开关控制</h3>
+            <div>
+                <label>控制状态: 
+                    <select id="io1State">
+                        <option value="true">开启</option>
+                        <option value="false">关闭</option>
+                    </select>
+                </label>
+                <button class="btn-success" onclick="setIO1Control(true)">开启</button>
+                <button class="btn-danger" onclick="setIO1Control(false)">关闭</button>
+            </div>
+            <div id="io1ControlStatus" class="status"></div>
+        </div>
+
+        <!-- AD1数据 -->
+        <div class="panel">
+            <h3>AD1数据监控</h3>
+            <div>
+                <label>数据条数: <input type="number" id="ad1Limit" value="50" min="1" max="1000"></label>
+                <button class="btn-primary" onclick="getAD1Data()">获取数据</button>
+            </div>
+            <div id="ad1Data" class="status"></div>
+        </div>
+    </div>
+
+    <script>
+        // 智能API基础配置
+        let API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+            ? 'http://localhost:8080/api'
+            : `${window.location.protocol}//${window.location.host}/api`;
+        console.log('API基础地址:', API_BASE);
+        
+        // 更新配置
+        function updateConfig() {
+            const ip = document.getElementById('serverIp').value.trim();
+            const port = document.getElementById('serverPort').value.trim();
+            
+            if(ip && port) {
+                API_BASE = `http://${ip}:${port}/api`;
+                showStatus('configStatus', `配置已更新: ${API_BASE}`, 'success');
+                return true;
+            }
+            
+            showStatus('configStatus', '请输入有效的IP和端口', 'error');
+            return false;
+        }
+        
+        // 测试连接
+        async function testConnection() {
+            try {
+                showStatus('configStatus', '正在连接服务器...', 'info');
+                const response = await fetch(`${API_BASE}/test`);
+                const data = await response.json();
+                
+                if(data.success) {
+                    showStatus('configStatus', `✅ 连接成功: ${data.message}`, 'success');
+                    return true;
+                } else {
+                    showStatus('configStatus', `连接失败: ${data.error || '未知错误'}`, 'error');
+                    return false;
+                }
+            } catch (error) {
+                showStatus('configStatus', 
+                    `❌ 连接错误: ${error}<br><br>
+                    可能原因:<br>
+                    1. 服务器未运行 (运行 python web_server.py)<br>
+                    2. IP/端口不正确<br>
+                    3. 跨域限制 (请通过http://访问)`, 
+                    'error');
+                return false;
+            }
+        }
+        
+        // 获取MQTT状态
+        async function getMQTTStatus() {
+            try {
+                showStatus('systemStatus', '获取MQTT状态中...', 'info');
+                const response = await fetch(`${API_BASE}/mqtt/status`);
+                const data = await response.json();
+                
+                if(data.success) {
+                    const status = data.data.connected ? '✅ 已连接' : '❌ 未连接';
+                    showStatus('systemStatus', `MQTT状态: ${status}`, 'success');
+                } else {
+                    showStatus('systemStatus', `获取失败: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus('systemStatus', `请求错误: ${error}`, 'error');
+            }
+        }
+
+        // 获取系统状态 (增强版)
+        async function getSystemStatus() {
+            try {
+                showStatus('systemStatus', '获取系统状态中...', 'info');
+                const response = await fetch(`${API_BASE}/status`);
+                const data = await response.json();
+                
+                if(data.success) {
+                    let html = `
+                        <strong>系统状态</strong>: ${data.data.system_status}<br>
+                        <strong>MQTT连接</strong>: ${data.data.mqtt_connected ? '✅ 已连接' : '❌ 未连接'}<br>
+                        <strong>IO1状态</strong>: ${data.data.io1_current_state ? '开启' : '关闭'}
+                    `;
+                    showStatus('systemStatus', html, 'success');
+                } else {
+                    showStatus('systemStatus', `获取失败: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus('systemStatus', `请求错误: ${error}`, 'error');
+            }
+        }
+        
+        // 获取AD1数据 (增强版)
+        async function getAD1Data(limit) {
+            const dataLimit = limit || document.getElementById('ad1Limit').value;
+            try {
+                const limit = document.getElementById('ad1Limit').value;
+                showStatus('ad1Data', '获取AD1数据中...', 'info');
+                const response = await fetch(`${API_BASE}/ad1/data?limit=${limit}`);
+                const data = await response.json();
+                
+                if(data.success) {
+                    let html = `<strong>最新${data.data.length}条AD1数据:</strong><br>`;
+                    data.data.forEach(item => {
+                        html += `值: ${item.value}, 时间: ${item.timestamp}<br>`;
+                    });
+                    showStatus('ad1Data', html, 'success');
+                } else {
+                    showStatus('ad1Data', `获取失败: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus('ad1Data', `请求错误: ${error}`, 'error');
+            }
+        }
+        
+        // 获取IO1控制历史
+        async function getIO1History() {
+            try {
+                showStatus('io1ControlStatus', '获取控制历史中...', 'info');
+                const response = await fetch(`${API_BASE}/io1/control`);
+                const data = await response.json();
+                
+                if(data.success) {
+                    let html = `<strong>IO1控制历史 (${data.data.length}条):</strong><br>`;
+                    data.data.forEach(item => {
+                        html += `状态: ${item.state}, 时间: ${item.timestamp}<br>`;
+                    });
+                    showStatus('io1ControlStatus', html, 'success');
+                } else {
+                    showStatus('io1ControlStatus', `获取失败: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus('io1ControlStatus', `请求错误: ${error}`, 'error');
+            }
+        }
+
+        // 设置IO1控制 (增强版)
+        async function setIO1Control(state) {
+            try {
+                showStatus('io1ControlStatus', '发送控制命令中...', 'info');
+                const response = await fetch(`${API_BASE}/io1/control`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ state: state })
+                });
+                const data = await response.json();
+                
+                if(data.success) {
+                    showStatus('io1ControlStatus', 
+                        `✅ 控制命令已发送: ${state ? '开启' : '关闭'}`, 'success');
+                    // 更新状态显示
+                    setTimeout(getSystemStatus, 1000);
+                } else {
+                    showStatus('io1ControlStatus', 
+                        `控制失败: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus('io1ControlStatus', 
+                    `请求错误: ${error}`, 'error');
+            }
+        }
+        
+        // 显示状态信息
+        function showStatus(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.className = `status ${type}`;
+            element.innerHTML = message;
+        }
+        
+        // 自动刷新状态
+        let refreshInterval;
+        function setupAutoRefresh() {
+            const checkbox = document.getElementById('autoRefresh');
+            if(checkbox.checked) {
+                refreshInterval = setInterval(() => {
+                    getSystemStatus();
+                    getMQTTStatus();
+                }, 5000);
+            } else {
+                clearInterval(refreshInterval);
+            }
+        }
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            updateConfig(); // 设置初始配置
+            // 添加自动刷新选项
+            const statusPanel = document.querySelector('.panel:nth-child(2)');
+            statusPanel.innerHTML += `
+                <div style="margin-top:10px;">
+                    <label><input type="checkbox" id="autoRefresh" checked> 自动刷新状态 (每5秒)</label>
+                </div>
+            `;
+            document.getElementById('autoRefresh').onchange = setupAutoRefresh;
+            setupAutoRefresh();
+        });
+    </script>
+</body>
+</html>

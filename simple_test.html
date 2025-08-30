@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>简易API测试</title>
+    <script>
+        async function testAPI() {
+            const url = 'http://localhost:8080/api/test';
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                document.getElementById('result').innerHTML = 
+                    `✅ 连接成功: ${JSON.stringify(data)}`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = 
+                    `❌ 连接失败: ${error}<br>尝试访问: ${url}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>简易API测试</h1>
+    <button onclick="testAPI()">测试API连接</button>
+    <div id="result" style="margin-top:20px;"></div>
+</body>
+</html>

@@ -67,8 +67,8 @@ class ESP32BackendSystem:
             # 更新ESP32配置文件
             esp32_updated = self.ip_manager.update_esp32_config()
             
-            # 更新微信小程序配置文件
-            miniprogram_updated = self.ip_manager.update_miniprogram_config()
+            # 更新微信小程序配置文件（使用通用的项目文件更新方法）
+            miniprogram_updated = self.ip_manager.update_project_files()
             
             logging.info(f"IP配置更新完成 - 主要IP: {new_ip}")
             logging.info(f"ESP32配置: {'已更新' if esp32_updated else '无需更新'}")
@@ -114,18 +114,26 @@ class ESP32BackendSystem:
             # 初始化数据库管理器
             db_path = self.config.get('DATABASE', 'db_path')
             self.database_manager = DatabaseManager(db_path)
+            if not self.database_manager:
+                raise Exception("数据库管理器初始化失败")
             logging.info("数据库管理器初始化完成")
             
             # 初始化MQTT客户端
             self.mqtt_client = MQTTClient(self.config_file, self.database_manager)
+            if not self.mqtt_client:
+                raise Exception("MQTT客户端初始化失败")
             logging.info("MQTT客户端初始化完成")
             
             # 初始化ESP32模拟器
             self.esp32_simulator = ESP32Simulator(self.config_file)
+            if not self.esp32_simulator:
+                raise Exception("ESP32模拟器初始化失败")
             logging.info("ESP32模拟器初始化完成")
             
             # 初始化Web服务器
             self.web_server = WebServer(self.config_file, self.database_manager, self.mqtt_client)
+            if not self.web_server:
+                raise Exception("Web服务器初始化失败")
             logging.info("Web服务器初始化完成")
             
             logging.info("所有系统组件初始化完成")
@@ -140,18 +148,37 @@ class ESP32BackendSystem:
         try:
             logging.info("正在启动系统组件...")
             
+            # 检查组件是否已初始化
+            if not all([self.mqtt_client, self.esp32_simulator, self.web_server]):
+                raise Exception("系统组件未正确初始化")
+            
             # 启动MQTT客户端
-            self.mqtt_client.connect()
-            time.sleep(2)  # 等待连接建立
+            if self.mqtt_client:
+                self.mqtt_client.connect()
+                time.sleep(2)  # 等待连接建立
             
             # 启动ESP32模拟器
-            self.esp32_simulator.connect()
-            time.sleep(2)  # 等待连接建立
+            if self.esp32_simulator:
+                self.esp32_simulator.connect()
+                time.sleep(2)  # 等待连接建立
             
             # 启动Web服务器（在新线程中）
-            web_thread = threading.Thread(target=self.web_server.start, daemon=True)
-            web_thread.start()
-            time.sleep(2)  # 等待服务器启动
+            if self.web_server:
+                web_thread = threading.Thread(target=self.web_server.start, daemon=True)
+                web_thread.start()
+                time.sleep(5)  # 增加等待时间，确保服务器完全启动
+                
+                # 检查web服务器是否真的启动了
+                try:
+                    import socket
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    result = sock.connect_ex(('127.0.0.1', self.web_server.port))
+                    if result == 0:
+                        logging.info(f"✅ Web服务器已成功启动，端口 {self.web_server.port}")
+                    else:
+                        logging.warning(f"⚠️ Web服务器端口 {self.web_server.port} 未响应，可能启动失败")
+                except Exception as e:
+                    logging.error(f"❌ Web服务器状态检查失败: {e}")
             
             logging.info("所有系统组件启动完成")
             return True
@@ -219,7 +246,7 @@ class ESP32BackendSystem:
             while self.running and not self.shutdown_event.is_set():
                 try:
                     # 检查组件状态
-                    mqtt_connected = self.mqtt_client.get_connection_status()
+                    mqtt_connected = self.mqtt_client.get_connection_status() if self.mqtt_client else False
                     simulator_connected = self.esp32_simulator.connected if self.esp32_simulator else False
                     
                     # 输出状态信息

@@ -242,6 +242,12 @@ def update_project_ip():
             "path": "web/config.js",
             "pattern": r'const serverIp = [\'"](\d+\.\d+\.\d+\.\d+)[\'"];',
             "replacement": 'const serverIp = "{ip}";'
+        },
+        # HTML测试页面
+        {
+            "path": "web_test_improved.html",
+            "pattern": r"let API_BASE = 'http://(\d+\.\d+\.\d+\.\d+):\d+/api';",
+            "replacement": "let API_BASE = 'http://{ip}:8080/api';"
         }
     ]
     
