@@ -174,9 +174,9 @@ class ESP32BackendSystem:
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                     result = sock.connect_ex(('127.0.0.1', self.web_server.port))
                     if result == 0:
-                        logging.info(f"✅ Web服务器已成功启动，端口 {self.web_server.port}")
+                        logging.info(f"Web服务器已成功启动，端口 {self.web_server.port}")
                     else:
-                        logging.warning(f"⚠️ Web服务器端口 {self.web_server.port} 未响应，可能启动失败")
+                        logging.warning(f"Web服务器端口 {self.web_server.port} 未响应，可能启动失败")
                 except Exception as e:
                     logging.error(f"❌ Web服务器状态检查失败: {e}")
             

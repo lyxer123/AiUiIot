@@ -9,6 +9,16 @@
         .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
         .success { background: #d4edda; color: #155724; }
         .error { background: #f8d7da; color: #721c24; }
+        .ad-panel, .io-panel { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 5px; 
+        }
+        #ad1Value, #io1State, #dataCount {
+            font-weight: bold;
+            color: #007bff;
+        }
         button { padding: 8px 15px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
         button:hover { background: #0056b3; }
         input { padding: 8px; margin: 5px 0; width: 150px; }
@@ -30,9 +40,26 @@
         </div>
 
         <div class="system-panel">
-            <h3>系统状态</h3>
-            <button onclick="getSystemStatus()">获取状态</button>
-            <div id="systemStatus" class="status"></div>
+            <h2>AIoT设备控制中心</h2>
+            
+            <div class="ad-panel">
+                <h3>AD传感器数据</h3>
+                <div>
+                    <strong>AD1值</strong>: <span id="ad1Value">--</span> ADC
+                </div>
+                <button onclick="getAD1Data()">刷新AD1数据</button>
+            </div>
+
+            <div class="io-panel">
+                <h3>IO1控制</h3>
+                <div>
+                    <strong>当前状态</strong>: <span id="io1State">OFF</span>
+                </div>
+                <button onclick="toggleIO1()">切换IO1状态</button>
+                <div>
+                    <strong>历史数据条数</strong>: <span id="dataCount">50</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -81,27 +108,38 @@
             }
         }
         
-        // 获取系统状态
-        async function getSystemStatus() {
+        // 获取AD1数据
+        async function getAD1Data() {
             try {
-                showStatus('systemStatus', '获取系统状态中...', 'info');
-                const response = await fetch(`${API_BASE}/status`);
+                const response = await fetch(`${API_BASE}/ad1`);
                 const data = await response.json();
-                
                 if(data.success) {
-                    let html = `
-                        <strong>系统状态</strong>: ${data.data.system_status}<br>
-                        <strong>MQTT连接</strong>: ${data.data.mqtt_connected ? '✅ 已连接' : '❌ 未连接'}<br>
-                        <strong>IO1状态</strong>: ${data.data.io1_current_state ? '开启' : '关闭'}
-                    `;
-                    showStatus('systemStatus', html, 'success');
-                } else {
-                    showStatus('systemStatus', `获取失败: ${data.error}`, 'error');
+                    document.getElementById('ad1Value').textContent = data.value;
                 }
             } catch (error) {
-                showStatus('systemStatus', `请求错误: ${error}`, 'error');
+                console.error('获取AD1数据失败:', error);
             }
         }
+
+        // 切换IO1状态
+        async function toggleIO1() {
+            try {
+                const response = await fetch(`${API_BASE}/io1/toggle`, { method: 'POST' });
+                const data = await response.json();
+                if(data.success) {
+                    document.getElementById('io1State').textContent = 
+                        data.new_state ? 'ON' : 'OFF';
+                }
+            } catch (error) {
+                console.error('切换IO1状态失败:', error);
+            }
+        }
+
+        // 初始化获取数据
+        document.addEventListener('DOMContentLoaded', function() {
+            updateConfig();
+            getAD1Data();
+        });
         
         // 显示状态信息
         function showStatus(elementId, message, type) {

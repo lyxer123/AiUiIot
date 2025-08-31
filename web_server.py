@@ -8,6 +8,9 @@ class WebServer:
         self.config = configparser.ConfigParser()
         self.config.read(config_file)
         
+        # 获取端口配置
+        self.port = self.config.getint('WEB_SERVER', 'port')
+        
         # 创建Flask应用
         self.app = Flask(__name__, static_folder='static')
         
